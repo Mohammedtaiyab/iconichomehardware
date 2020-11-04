@@ -96,9 +96,6 @@
           </div>
         </div>
       </div>
-
-
-
     <!-- Footer Mobile -->
        <footer id="footerMobile" class="footer-area footer-mobile d-lg-none d-xl-none">
    
@@ -112,7 +109,7 @@
                             <div class="card card-body">
                         <ul class="pl-0 mb-0">
                           <li><a href="index.php">
-                              <img src="images/logo/logoicon.png" alt="logo here">                                            
+                              <img src="images/logo/hamza.png" alt="logo here">                                            
                             </a></li>
                           <li> <span>Kuwait</span> </li>
                           <li><span>1234567890</span><span><a href="#">Info@iconichomehardware.com</a> </span> </li>
@@ -190,7 +187,7 @@
                 
                     <ul class="pl-0 mb-0">
                       <li><a href="index-2.html">
-                          <img src="images/logo/logoicon.png" alt="logo here">                                            
+                          <img src="images/logo/hamza.png" alt="logo here">                                            
                         </a></li>
                       <li> <span>kuwait</span> </li>
                       <li><span>1234567890</span><span><a href="#">info@iconichomehardware.com</a> </span> </li>

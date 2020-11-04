@@ -119,7 +119,7 @@
           <div class="row align-items-center">
             <div class="col-12 col-md-12 col-lg-2">
               <a href="index-2.html" class="logo" data-toggle="tooltip" data-placement="bottom" title="logo" >
-                <img class="img-fluid" src="images/logo/logoicon.png" alt="logo here">                                            
+                <img class="img-fluid" src="images/logo/hamza.png" alt="logo here">                                            
               </a>
             </div>
             
@@ -221,7 +221,7 @@
             <div class="row align-items-center">
               <div class="col-12 col-sm-12 col-lg-2">
             <a href="index-2.html" class="logo" data-toggle="tooltip" data-placement="bottom" title="logo" >
-                  <img class="img-fluid" src="images/logo/logoicon.png"  alt="logo here">                                            
+                  <img class="img-fluid" src="images/logo/hamza.png"  alt="logo here">                                            
                 </a>
               </div>
               
