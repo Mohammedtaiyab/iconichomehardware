@@ -202,8 +202,8 @@
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#" >
-                     <img src="fonts/shower.png" width="24px">
-                    Shower
+                     <img src="fonts/hardware.png" width="24px">
+                    Hardware
                   </a>
                 </li>
                 
@@ -261,8 +261,8 @@
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#" >
-                     <img src="fonts/shower.png" width="24px">
-                    Shower
+                     <img src="fonts/hardware.png" width="24px">
+                    Hardware
                   </a>
                 </li>
                 
@@ -371,8 +371,8 @@
                         
                           </a>
                         <a href="#" class="main-manu btn ">
-                     <img src="fonts/shower.png" width="16px">
-                    Shower
+                     <img src="fonts/hardware.png" width="16px">
+                    Hardware
                   </a>
                     <a class="main-manu btn" data-toggle="collapse" href="#staticlogin" role="button" aria-expanded="false" aria-controls="staticlogin">
                           <img src="fonts/user.png" width="16px">
