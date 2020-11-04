@@ -398,7 +398,7 @@
               </div>
               <div class="col-8">
                   <a href="" class="logo" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="logo">
-                      <img class="img-fluid" src="images/logo/logoicon.png" alt="logo here">                                            
+                      <img class="img-fluid" src="images/logo/hamza.png" alt="logo here">                                            
                     </a>
               </div>
               
