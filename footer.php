@@ -65,7 +65,7 @@ $j=0;
                               </div>
                               <p>
                               <b>
-                                <a href="">More Detail...</a>
+                                <a href='product-detail.php?id=<?php echo $item['proID']; ?>'>More Detail...</a>
                               </b></p>
                               <div class="pro-counter">
                                   <div class="input-group item-quantity">

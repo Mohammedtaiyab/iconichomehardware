@@ -257,26 +257,32 @@ foreach ($subcategory as $sub) { ?>
                     </a>
                 </li>
                           
-                   <li class="nav-item dropdown">
+                      <li class="nav-item">
+                  <a class="nav-link" href="#" >
+                     <img src="fonts/shipping.png" width="24px">
+                   Products
+                  </a>
+                </li>
+<?php 
+$topcategory=$category->topcategory();
+foreach ($topcategory as $top) { ?>
+<li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" >
-                   <img src="fonts/shipping.png" width="24px">
-                  Products
+                   <img src="fonts/settings.png" width="24px">
+             <?php echo $top['Category']; ?>
                   </a>
+                   <div class="dropdown-menu">
+                    <?php 
+$subcategory=$category->subcategorybyid($top['id']);
+foreach ($subcategory as $sub) { ?>
+                          <a class="dropdown-item" href="#"><?php echo $sub['name']; ?>                    
+                          </a>
+
+                        <?php } ?>
+                         
+                        </div>
                 </li>
-                    
-           
-                <li class="nav-item">
-                  <a class="nav-link" href="#" >
-                     <img src="fonts/settings.png" width="24px">
-                    Tools
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#" >
-                     <img src="fonts/hardware.png" width="24px">
-                    Hardware
-                  </a>
-                </li>
+<?php } ?>
                 
                     </ul>
                   </div>
@@ -363,7 +369,7 @@ foreach ($subcategory as $sub) { ?>
                                 
                           </div> 
 
-         <a href="#" class="main-manu btn ">
+         <a href="index.php" class="main-manu btn ">
                             <img src="fonts/home.png" width="16px">
                               Home
                            
@@ -373,19 +379,33 @@ foreach ($subcategory as $sub) { ?>
                       Trading
                         
                           </a>
-                          <a class=" main-manu btn" data-toggle="collapse" href="#productpages" role="button" aria-expanded="false" aria-controls="productpages">
+
+                         <a href="#" class="main-manu btn ">
                             <img src="fonts/shipping.png" width="16px"> Products
                          
                           </a>
-                          <a href="#" class="main-manu btn ">
+
+<?php 
+$topcategory=$category->topcategory();
+foreach ($topcategory as $top) { ?>
+
+                         <a class=" main-manu btn" data-toggle="collapse" href='<?php echo "#nav".$top['id']; ?>' role="button" aria-expanded="false" aria-controls="productpages">
                                 <img src="fonts/settings.png" width="16px">
-                    Tools
+               <?php echo $top['Category']; ?>
                         
                           </a>
-                        <a href="#" class="main-manu btn ">
-                     <img src="fonts/hardware.png" width="16px">
-                    Hardware
-                  </a>
+                    <div class="sub-manu2 collapse multi-collapse" id='<?php echo "nav".$top['id']; ?>' >
+                                      <ul class="unorder-list">
+                                           <?php 
+$subcategory=$category->subcategorybyid($top['id']);
+foreach ($subcategory as $sub) { ?>
+                                          <li class="">
+                                             <a class="btn main-manu" href="#">  <?php echo $sub['name']; ?></a></li>
+                                                       <?php } ?>
+                                      </ul>    
+                                    </div>
+            <?php } ?>
+
                     <a class="main-manu btn" data-toggle="collapse" href="#staticlogin" role="button" aria-expanded="false" aria-controls="staticlogin">
                           <img src="fonts/user.png" width="16px">
                                  Account
@@ -432,15 +452,12 @@ foreach ($subcategory as $sub) { ?>
                     <div class="search-field-select" >
                         <select class="form-control">
                           <option selected>All Categories</option>
-                          <option value="1">Rings
-    &nbsp;</option>
-                          <option value="1">Earrings&nbsp;</option>
-                          <option value="1">Crowns&nbsp;</option>
-                          <option value="1">Necklace&nbsp;</option>
-                          <option value="1">Bracelet&nbsp;</option>
-                          <option value="1">Anklet&nbsp;</option>
-                          <option value="1">Hairpin&nbsp;</option>
-                          <option value="2">Bangle&nbsp;</option>
+                         <option selected>All Categories</option>
+                          <?php 
+                          $categories=$category->getData();
+                           foreach($categories as $cat){?>
+                          <option value='<?php echo $cat['id']; ?>'><?php echo $cat['name']; ?>&nbsp;</option>
+                       <?php } ?>
                             </select>
                     </div>
                     <div class="search-field-wrap">
