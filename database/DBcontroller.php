@@ -5,7 +5,7 @@ class DBcontroller
 	protected $host ='localhost';
 	protected $user='marketi1_OJO';
 	protected $password="Marketing@52";
-	protected $database="iconichomehardware";
+	protected $database="marketi1_iconichomehardware";
 
 	public $con=null;
 public function __construct(){

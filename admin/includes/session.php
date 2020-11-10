@@ -14,7 +14,7 @@
 	$admin = $stmt->fetch();
 
 	$pdo->close();
-$con=mysqli_connect("localhost","marketi1_OJO","Marketing@52","iconichomehardware");
+$con=mysqli_connect("localhost","marketi1_OJO","Marketing@52","marketi1_iconichomehardware");
 if(isset($_GET['type']) && $_GET['type']!=''){
   $type=$_GET['type'];
   if($type=='status'){
