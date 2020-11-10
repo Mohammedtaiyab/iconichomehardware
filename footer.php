@@ -1,6 +1,11 @@
-
+<?php 
+$productlist=$product->productsall();
+//print_r($productlist);
+   $i = 0; 
+    foreach($productlist as $item): 
+      ?>
  <!-- Product Modal -->
-     <div class="modal fade" id="quickViewModal" tabindex="-1" role="dialog" aria-hidden="true">
+     <div class="modal fade" id='<?php echo "p".$item['proID']; ?>' tabindex="-1" role="dialog" aria-hidden="true">
       
         <div class="modal-dialog modal-lg" role="document">
           <div class="modal-content">
@@ -10,31 +15,27 @@
                     <div class="row align-items-center">
                       <div class="col-12 col-md-6">
                           <div class="row ">
-                              <div id="quickViewCarousel" class="carousel slide" data-ride="carousel">
+                              <div id='<?php echo "quickView".$item['proID']; ?>' class="carousel slide" data-ride="carousel">
                                   <!-- The slideshow -->
                                   <div class="carousel-inner">
                                     <div class="carousel-item active">
                                         
-                                      <img class="img-fluid" src="images/gallery_demo_2/preview/Product_image_01.jpg" alt="image">
+                                      <img class="img-fluid" src='images/product/<?php echo $item['Image'];?>' alt="image">
                                     </div>
+<?php 
+$gallery=$product->productgallery($item['proID']);
+$j=0;
+  foreach($gallery as $gall){ ?>
                                     <div class="carousel-item">
-                                        
-                                      <img class="img-fluid" src="images/gallery_demo_2/preview/Product_image_02.jpg" alt="image">
+                                      <img class="img-fluid" src='images/product/<?php echo $gall['Image'];?>' alt="image">
                                     </div>
-                                    <div class="carousel-item">
-                                        
-                                      <img class="img-fluid" src="images/gallery_demo_2/preview/Product_image_03.jpg" alt="image">
-                                    </div>
-                                    <div class="carousel-item">
-                                        
-                                      <img class="img-fluid" src="images/gallery_demo_2/preview/Product_image_04.jpg" alt="image">
-                                    </div>
+                                  <?php }?>
                                   </div>
                                   <!-- Left and right controls -->
-                                  <a class="carousel-control-prev" href="#quickViewCarousel" data-slide="prev">
+                                  <a class="carousel-control-prev" href='<?php echo "#quickView".$item['proID']; ?>' data-slide="prev">
                                     <span class="fas fa-angle-left "></span>
                                   </a>
-                                  <a class="carousel-control-next" href="#quickViewCarousel" data-slide="next">
+                                  <a class="carousel-control-next" href='<?php echo "#quickView".$item['proID']; ?>' data-slide="next">
                                     <span class="fas fa-angle-right "></span>
                                   </a>
                                 
@@ -43,34 +44,33 @@
                       </div>
                       <div class="col-12 col-md-6">
                           <div class="pro-description">
-                              <h2 class="pro-title">Teclast X22 Air LCD Screen </h2>
+                              <h2 class="pro-title"><?php echo $item['Name']; ?> </h2>
                           
                               <div class="pro-price">
-                                  <ins>$1100</ins>
+                                  <ins><?php echo $item['Price']; ?>kd/-</ins>
                               </div>
 
                               <div class="pro-infos">
-                                  <div class="pro-single-info"><b>Product ID :</b>1004</div>
-                                  <div class="pro-single-info"><b>Categroy :</b><a href="#">Slim LCD Touch Screen</a></div>
+                                  <div class="pro-single-info"><b>Company :</b><?php echo $item['Company']; ?></div>
+                                  <div class="pro-single-info"><b>Categroy :</b><a href="#"><?php echo $item['name'];
+                          ?>  </a></div>
                                   <div class="pro-single-info">
                                     <b>Tags :</b>
                                     <ul>
-                                        <li><a href="#">LCD</a></li>
-                                        <li><a href="#">Monitor</a></li>
-                                        <li><a href="#">Accessories</a></li>
+                                        <li><a href="#"><?php echo $item['Category']; ?></a></li>
                                     </ul>
                                   </div>
                                   <div class="pro-single-info"><b>Available :</b><span class="text-secondary">InStock</span></div>
+                                    <div class="pro-single-info"><b>Made In :</b><?php echo $item['Country']; ?></div>
                               </div>
-                              
                               <p>
-                                  Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                                  sed do eiusmod tempor. 
-                              </p>
+                              <b>
+                                <a href="">More Detail...</a>
+                              </b></p>
                               <div class="pro-counter">
                                   <div class="input-group item-quantity">
                                         
-                                      <input type="text" id="quantity1" name="quantity" class="form-control quantity " value="10">
+                                      <input type="text" id="quantity1" name="quantity" class="form-control quantity " value="1">
                                       
                                       <span class="input-group-btn">
                                           <button type="button" value="quantity1" class="quantity-plus btn" data-type="plus" data-field="">
@@ -96,6 +96,8 @@
           </div>
         </div>
       </div>
+
+            <?php $i++; endforeach;?>
     <!-- Footer Mobile -->
        <footer id="footerMobile" class="footer-area footer-mobile d-lg-none d-xl-none">
    

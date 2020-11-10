@@ -1,3 +1,4 @@
+<?php require('functions.php'); ?>
 <!DOCTYPE html>
 <html class="no-js" lang="en">
 <head>
@@ -30,6 +31,14 @@
     flex-direction: column;
     align-items: center;
         }
+        .product article .pro-thumb .img-fluid {
+    display: inherit;
+    width: inherit;
+    margin-left: auto;
+    margin-top: 20%;
+    /* object-fit: none; */
+    margin-right: auto;
+    /* justify-content: center;
       </style>
   </head>
     
@@ -129,15 +138,11 @@
                   <div class="search-field-select" >
                       <select class="selectpicker">
                           <option selected>All Categories</option>
-                          <option value="1">Rings&nbsp;</option>
-                          <option value="1">Earrings&nbsp;</option>
-                          <option value="1">Crowns&nbsp;</option>
-                          <option value="1">Necklace&nbsp;</option>
-                          <option value="1">Bracelet&nbsp;</option>
-                          <option value="1">Anklet Bracelets&nbsp;</option>
-                          <option value="1">Hairpin&nbsp;</option>
-                          <option value="2">Bangle&nbsp;</option>
-                          
+                          <?php 
+                          $categories=$category->getData();
+                           foreach($categories as $cat){?>
+                          <option value='<?php echo $cat['id']; ?>'><?php echo $cat['name']; ?>&nbsp;</option>
+                       <?php } ?>
                           </select>
                   </div>
                   <div class="search-field-wrap">
@@ -185,27 +190,34 @@
                           <img src="fonts/fire.png" width="24px">
                       Trading
                     </a>
+
                 </li>
-                 <li class="nav-item dropdown">
+                 <li class="nav-item">
+                  <a class="nav-link" href="#" >
+                     <img src="fonts/shipping.png" width="24px">
+                   Products
+                  </a>
+                </li>
+<?php 
+$topcategory=$category->topcategory();
+foreach ($topcategory as $top) { ?>
+<li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" >
-                   <img src="fonts/shipping.png" width="24px">
-                  Products
+                   <img src="fonts/settings.png" width="24px">
+             <?php echo $top['Category']; ?>
                   </a>
+                   <div class="dropdown-menu">
+                    <?php 
+$subcategory=$category->subcategorybyid($top['id']);
+foreach ($subcategory as $sub) { ?>
+                          <a class="dropdown-item" href="#"><?php echo $sub['name']; ?>                    
+                          </a>
+
+                        <?php } ?>
+                         
+                        </div>
                 </li>
-                    
-           
-                <li class="nav-item">
-                  <a class="nav-link" href="#" >
-                     <img src="fonts/settings.png" width="24px">
-                    Tools
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#" >
-                     <img src="fonts/hardware.png" width="24px">
-                    Hardware
-                  </a>
-                </li>
+<?php } ?>
                 
               </ul>
             </div>

@@ -8534,7 +8534,8 @@ body:not(.touch-device).modal-open {
     overflow: hidden;
     border-radius: 0;
     -webkit-transform: perspective(1px) translateZ(0);
-    transform: perspective(1px) translateZ(0); }
+    transform: perspective(1px) translateZ(0); 
+      height: 180px;}
     .product article .pro-thumb:after {
       content: "";
       position: absolute;
@@ -8577,7 +8578,7 @@ body:not(.touch-device).modal-open {
     .product article .pro-thumb .pro-buttons {
       z-index: 9;
       position: absolute;
-      bottom: 35px;
+      bottom: 28px;
       transition-timing-function: ease-in;
       /* Quick on the way out */
       transition: 0.75s;

@@ -1,3 +1,4 @@
+
  <!-- Revolution Layer Slider -->
       <div class="carousel-content carousel-content-home-page-2">
         <div class="container-fuild">
@@ -6,9 +7,21 @@
               <div id="rev_slider_1077_1" class="rev_slider fullscreenbanner" style="display:none;" data-version="5.4.1">
               <ul >
                 <!-- SLIDE  -->
+
+ 
+  <?php 
+                    $banneritems=$banner->getData("banner");
+                    $i=0;
+                    foreach ($banneritems as $item): 
+                  if($i==0){
+
+?>
+
+
+
                 <li data-index="rs-3043" data-transition="slideoverhorizontal" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="1000" data-thumb=""  data-rotate="0"  data-saveperformance="off"  data-title="NEW ELEGENCE" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
                   <!-- MAIN IMAGE -->
-                  <img src="images/revolution_layer_slider_demo_2/Slider_01_02.jpg"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgparallax="10" class="rev-slidebg" data-no-retina>
+                  <img src="images/revolution_layer_slider_demo_2/slider2.jpg"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgparallax="10" class="rev-slidebg" data-no-retina>
                   <!-- LAYERS -->
                   
                   <div class="container" style="position: relative;">
@@ -35,7 +48,7 @@
                   data-paddingbottom="[0,0,0,0]"
                   data-paddingleft="[0,0,0,0]"
             
-                  style="z-index: 12;  white-space: normal; color:#fff; ">Fine weather all year round</div>
+                  style="z-index: 12;  white-space: normal; color:#fff; "><?php echo  $item['Header'];?></div>
 
                   <!-- LAYER NR. 5 -->
 
@@ -60,7 +73,7 @@
                     data-paddingbottom="[0,0,0,0]"
                     data-paddingleft="[0,0,0,0]"
               
-                    style="z-index: 11; white-space: nowrap; color:#fff; ">Rectify Your Feeling <br>With Surroundings</div>
+                    style="z-index: 11; white-space: nowrap; color:#fff; text-transform: capitalize;"><?php echo $item['Paragraph'];?></div>
               
                   
               
@@ -89,9 +102,18 @@
                   </div>
                 </li>
                 <!-- SLIDE  -->
+
+              <?php  $i++; } endforeach;
+
+                    $banneritems=$banner->getData("banner");
+                    $i=0;
+                    foreach ($banneritems as $item): 
+                  if($i==1){
+
+?>
                 <li data-index="rs-3042" data-transition="slideoverhorizontal" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="1000" data-thumb=""  data-rotate="0"  data-fstransition="fade" data-fsmasterspeed="1500" data-fsslotamount="7" data-saveperformance="off"  data-title="Big &amp; Bold" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
                     <!-- MAIN IMAGE -->
-                    <img src="images/revolution_layer_slider_demo_2/Slider_01_01.jpg"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina>
+                    <img src="images/revolution_layer_slider_demo_2/slider1.png"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina>
                     <!-- LAYERS -->
                 
                     <div class="container" style="position: relative;">
@@ -118,7 +140,7 @@
                     data-paddingbottom="[0,0,0,0]"
                     data-paddingleft="[0,0,0,0]"
               
-                    style="z-index: 12;  white-space: normal; color:#fff; ">LED-backlit Display</div>
+                    style="z-index: 12;  white-space: normal; color:#fff; "><?php echo $item['Header'];?></div>
 
                     <!-- LAYER NR. 2 -->
 
@@ -143,8 +165,7 @@
                       data-paddingbottom="[0,0,0,0]"
                       data-paddingleft="[0,0,0,0]"
                 
-                      style="z-index: 11; white-space: nowrap; color:#fff; ">Update Yourself by<br>
-                    Latest Technology</div>
+                      style="z-index: 11; white-space: nowrap; color:#fff;text-transform: capitalize; "><?php echo $item['Paragraph'];?></div>
                 
                     
                 
@@ -173,11 +194,17 @@
 
                     </div>
                   </li>
-                  
+                    <?php  $i++; }  $i++;endforeach; 
+                     $banneritems=$banner->getData("banner");
+                    $i=0;
+                    foreach ($banneritems as $item): 
+                  if($i==2){
+
+?>
                   <!-- SLIDE  -->
                   <li data-index="rs-3044" data-transition="slideoverhorizontal" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="1000" data-thumb=""  data-rotate="0"  data-saveperformance="off"  data-title="Beauty Here" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
                     <!-- MAIN IMAGE -->
-                    <img src="images/revolution_layer_slider_demo_2/Slider_01_03.jpg"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina>
+                    <img src="images/revolution_layer_slider_demo_2/slider3.jpg"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina>
                     <!-- LAYERS -->
                 
                     <div class="container" style="position: relative;">
@@ -204,7 +231,8 @@
                     data-paddingbottom="[0,0,0,0]"
                     data-paddingleft="[0,0,0,0]"
               
-                    style="z-index: 12;  white-space: normal; color:#fff; ">Meet New Generation Phones</div>
+                    style="z-index: 12;  white-space: normal; color:#fff;"><?php echo $item['Header'];?></div>
+
 
                     <!-- LAYER NR. 8 -->
 
@@ -229,8 +257,7 @@
                       data-paddingbottom="[0,0,0,0]"
                       data-paddingleft="[0,0,0,0]"
                 
-                      style="z-index: 11; white-space: nowrap; color:#fff; ">See Through A Huge<br>
-                      Mobile Collection
+                      style="z-index: 11; white-space: nowrap; color:#fff;text-transform: capitalize; "><?php echo $item['Paragraph'];?>
                     </div>
                 
                     
@@ -259,6 +286,7 @@
                         style="z-index: 13; text-transform: uppercase; white-space: nowrap;outline:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer; line-height: 1.5;">Shop Now</div>
                     </div>
                   </li>
+                    <?php  $i++; }  $i++;endforeach; ?>
               </ul>
               <div class="tp-bannertimer tp-bottom" style="visibility: hidden !important;"></div>	</div>
             </div><!-- END REVOLUTION SLIDER -->
