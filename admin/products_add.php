@@ -1,7 +1,6 @@
 <?php
 	include 'includes/session.php';
 	include 'includes/slugify.php';
-
 	if(isset($_POST['add'])){
 		$name = $_POST['name'];
 		$slug = slugify($name);

@@ -35,8 +35,8 @@
     display: inherit;
     width: inherit;
     margin-left: auto;
-    margin-top: 20%;
-    /* object-fit: none; */
+    /*margin-top: 20%;*/
+/*  object-fit: none; */
     margin-right: auto;
     /* justify-content: center;
       </style>

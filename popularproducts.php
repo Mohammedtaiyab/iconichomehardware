@@ -17,7 +17,7 @@ $productlist=$product->productsall();
    $i = 0; 
     foreach($productlist as $item): 
       //print_r($item);
-        if($i >= 4) {break;}else{?>             
+        if($i >= 8) {break;}else{?>             
                 <div class="col-12 col-md-6 col-lg-4 col-xl-3">
                   <div class="product">
                     <article>      
