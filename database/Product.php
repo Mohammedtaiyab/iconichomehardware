@@ -36,7 +36,25 @@ class Product
 		return $resultArray;
 	}
 	public function Productbycategory($id){
-		$result =$this->db->con->query("SELECT * FROM product WHERE Categories_id=($id)");
+		$result =$this->db->con->query("SELECT *,p.ID AS proID,sc.id AS subId,tc.id AS topId FROM product p INNER JOIN category sc INNER JOIN categories tc INNER JOIN client c INNER JOIN madein mi on p.Categories_id=sc.id and sc.topcategoryid=tc.id and p.Company=c.Id and p.MadeIn=mi.Id WHERE Categories_id=($id)");
+		$resultArray=array();
+		while ($item=mysqli_fetch_array($result,MYSQLI_ASSOC)) {
+			$resultArray[]=$item;
+			# code...
+		}
+		return $resultArray;
+	}
+	public function Productbycountry($id){
+		$result =$this->db->con->query("SELECT *,p.ID AS proID,sc.id AS subId,tc.id AS topId FROM product p INNER JOIN category sc INNER JOIN categories tc INNER JOIN client c INNER JOIN madein mi on p.Categories_id=sc.id and sc.topcategoryid=tc.id and p.Company=c.Id and p.MadeIn=mi.Id WHERE p.MadeIn=($id)");
+		$resultArray=array();
+		while ($item=mysqli_fetch_array($result,MYSQLI_ASSOC)) {
+			$resultArray[]=$item;
+			# code...
+		}
+		return $resultArray;
+	}
+	public function Productbybrand($id){
+		$result =$this->db->con->query("SELECT *,p.ID AS proID,sc.id AS subId,tc.id AS topId FROM product p INNER JOIN category sc INNER JOIN categories tc INNER JOIN client c INNER JOIN madein mi on p.Categories_id=sc.id and sc.topcategoryid=tc.id and p.Company=c.Id and p.MadeIn=mi.Id WHERE p.Company=($id)");
 		$resultArray=array();
 		while ($item=mysqli_fetch_array($result,MYSQLI_ASSOC)) {
 			$resultArray[]=$item;

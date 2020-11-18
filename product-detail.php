@@ -10,7 +10,7 @@ $productitem=$product->singleProduct($id);
           <nav aria-label="breadcrumb">
               <div class="container">
                   <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a href="index.php">Home</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Product Page</li>
                   </ol>
               </div>

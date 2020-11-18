@@ -115,8 +115,8 @@
                               <span class='pull-right'><a href='#edit_photo' class='photo' data-toggle='modal' data-id='".$row['ID']."'><i class='fa fa-edit'></i></a></span>
                             </td>
                             <td><a href='#description' data-toggle='modal' class='btn btn-info btn-sm btn-flat desc' data-id='".$row['ID']."'><i class='fa fa-search'></i> View</a></td>
-                            <td>₹ ".number_format($row['Price'], 2)."</td>
-                                 <td>₹ ".number_format($row['mrp'], 2)."</td>
+                            <td>".number_format($row['Price'], 2)."KD</td>
+                                 <td>".number_format($row['mrp'], 2)."KD</td>
                                  <td>".$row['Dealer']."</td>
                             <td>";
                             if($row['Status']==1){

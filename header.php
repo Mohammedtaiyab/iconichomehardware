@@ -47,26 +47,6 @@
       <!-- //Header Style One -->
       <header id="headerOne" class="header-area header-one header-desktop">
 
-  <!--     <div class="alert alert-warning alert-dismissible fade show" role="alert">
-          <div class="container">
-              <div class="pro-description">
-                <div class="pro-info">
-                    Get<strong> UPTO 40% OFF </strong>on your 1st order
-                    <div class="pro-link-dropdown js-toppanel-link-dropdown">
-                      <a href="shop-page1.html" class="pro-dropdown-toggle">
-                        More details
-                      </a>
-                      
-                    </div>
-                </div>
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                  </button>
-              </div>
-
-          </div>
-      </div> -->
-
       <div class="header-mini bg-top-bar">
         <div class="container">
           <div class="row align-items-center">
@@ -84,17 +64,6 @@
                           
                         </div>
                       </div> 
-
-                    <!--   <div class="dropdown">
-                          <a href="javascript:void(0);" class="dropdown-toggle">
-                            USD
-                          </a>
-                          <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">$&nbsp;USD</a>
-                            <a class="dropdown-item" href="#">€&nbsp;EUR</a>
-                            
-                          </div>
-                        </div> -->
                       </div>
             </div>
 
@@ -110,8 +79,8 @@
                       </a>
                         <div class="dropdown-menu" >
                           <a class="dropdown-item" href="#">Profile</a>
-                          <a class="dropdown-item" href="#">Wishlist&nbsp;(3)</a>
-                          <a class="dropdown-item" href="#">Compare&nbsp;(2)</a>
+                          <a class="dropdown-item" href="#">Wishlist&nbsp;(0)</a>
+                          <a class="dropdown-item" href="#">Compare&nbsp;(0)</a>
                           <a class="dropdown-item" href="#">Orders</a>
                           <a class="dropdown-item" href="#">Shipping Address</a>
                           <a class="dropdown-item" href="#">Logout</a>
@@ -127,7 +96,7 @@
         <div class="container">
           <div class="row align-items-center">
             <div class="col-12 col-md-12 col-lg-2">
-              <a href="index-2.html" class="logo" data-toggle="tooltip" data-placement="bottom" title="logo" >
+              <a href="index.php" class="logo" data-toggle="tooltip" data-placement="bottom" title="logo" >
                 <img class="img-fluid" src="images/logo/hamza.png" alt="logo here">                                            
               </a>
             </div>
@@ -158,13 +127,13 @@
                 <li>
                   <a href="#" class="btn" data-toggle="tooltip" data-placement="bottom" title="Wishlist">
                       <i class="far fa-heart"></i>
-                      <span class="badge badge-secondary">3</span>
+                      <span class="badge badge-secondary">0</span>
                   </a>
                 </li>
                 <li class="dropdown" data-toggle="tooltip" data-placement="bottom" title="cart">
                   <button class="btn dropdown-toggle" type="button" id="headerOneCartButton"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" > 
                       <i class="fas fa-shopping-cart"></i>
-                      <span class="badge badge-secondary">2</span>
+                      <span class="badge badge-secondary">0</span>
                   </button> 
                 </li>
               </ul>
@@ -185,40 +154,60 @@
                     Home
                   </a>
                 </li>
-                         <li class="nav-item">
-                    <a class="nav-link" href="#" >
-                          <img src="fonts/fire.png" width="24px">
-                      Trading
-                    </a>
-
-                </li>
-                 <li class="nav-item">
-                  <a class="nav-link" href="#" >
-                     <img src="fonts/shipping.png" width="24px">
-                   Products
-                  </a>
-                </li>
-<?php 
-$topcategory=$category->topcategory();
-foreach ($topcategory as $top) { ?>
-<li class="nav-item dropdown">
+                       <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" >
-                   <img src="fonts/settings.png" width="24px">
-             <?php echo $top['Category']; ?>
-                  </a>
-                   <div class="dropdown-menu">
+                          <img src="fonts/settings.png" width="24px">
+                   Category
+                    </a>
+                       <div class="dropdown-menu">
                     <?php 
-$subcategory=$category->subcategorybyid($top['id']);
+$subcategory=$category->getData();
 foreach ($subcategory as $sub) { ?>
-                          <a class="dropdown-item" href="#"><?php echo $sub['name']; ?>                    
+                          <a class="dropdown-item" style="text-transform: capitalize;" href='products.php?categoryid=<?php echo $sub['id']; ?>'><?php echo $sub['name']; ?>                    
                           </a>
 
                         <?php } ?>
                          
                         </div>
                 </li>
-<?php } ?>
-                
+                 <li class="nav-item">
+                  <a class="nav-link" href="products.php" >
+                     <img src="fonts/shipping.png" width="24px">
+                   Products
+                  </a>
+                </li>        
+                 <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" >
+                          <img src="fonts/Country.png" width="24px">
+                   Made In
+                    </a>
+                       <div class="dropdown-menu">
+                    <?php 
+$subcategory=$category->getDatacountry();
+foreach ($subcategory as $sub) { ?>
+                          <a class="dropdown-item" style="text-transform: capitalize;" href='products.php?countryid=<?php echo $sub['Id']; ?>'><?php echo $sub['Country']; ?>                    
+                          </a>
+
+                        <?php } ?>
+                         
+                        </div>
+                </li>
+                   <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" >
+                          <img src="fonts/brand.png" width="24px">
+                   Company
+                    </a>
+                       <div class="dropdown-menu">
+                    <?php 
+$subcategory=$category->getDatabrand();
+foreach ($subcategory as $sub) { ?>
+                          <a class="dropdown-item" style="text-transform: capitalize;" href='products.php?brandid=<?php echo $sub['Id']; ?>'><?php echo $sub['Company']; ?>                    
+                          </a>
+
+                        <?php } ?>
+                         
+                        </div>
+                </li>
               </ul>
             </div>
           </nav>
@@ -232,7 +221,7 @@ foreach ($subcategory as $sub) { ?>
           <div class="container">
             <div class="row align-items-center">
               <div class="col-12 col-sm-12 col-lg-2">
-            <a href="index-2.html" class="logo" data-toggle="tooltip" data-placement="bottom" title="logo" >
+            <a href="index.php" class="logo" data-toggle="tooltip" data-placement="bottom" title="logo" >
                   <img class="img-fluid" src="images/logo/hamza.png"  alt="logo here">                                            
                 </a>
               </div>
@@ -250,39 +239,60 @@ foreach ($subcategory as $sub) { ?>
                     
                       </li>
                           
-                   <li class="nav-item">
-                    <a class="nav-link" href="#" >
-                          <img src="fonts/fire.png" width="24px">
-                      Trading
-                    </a>
-                </li>
-                          
-                      <li class="nav-item">
-                  <a class="nav-link" href="#" >
-                     <img src="fonts/shipping.png" width="24px">
-                   Products
-                  </a>
-                </li>
-<?php 
-$topcategory=$category->topcategory();
-foreach ($topcategory as $top) { ?>
-<li class="nav-item dropdown">
+                    <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" >
-                   <img src="fonts/settings.png" width="24px">
-             <?php echo $top['Category']; ?>
-                  </a>
-                   <div class="dropdown-menu">
+                          <img src="fonts/settings.png" width="24px">
+                   Category
+                    </a>
+                       <div class="dropdown-menu">
                     <?php 
-$subcategory=$category->subcategorybyid($top['id']);
+$subcategory=$category->getData();
 foreach ($subcategory as $sub) { ?>
-                          <a class="dropdown-item" href="#"><?php echo $sub['name']; ?>                    
+                          <a class="dropdown-item" style="text-transform: capitalize;" href='products.php?categoryid=<?php echo $sub['id']; ?>'><?php echo $sub['name']; ?>                    
                           </a>
 
                         <?php } ?>
                          
                         </div>
                 </li>
-<?php } ?>
+                 <li class="nav-item">
+                  <a class="nav-link" href="products.php" >
+                     <img src="fonts/shipping.png" width="24px">
+                   Products
+                  </a>
+                </li>        
+                 <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" >
+                          <img src="fonts/Country.png" width="24px">
+                   Made In
+                    </a>
+                       <div class="dropdown-menu">
+                    <?php 
+$subcategory=$category->getDatacountry();
+foreach ($subcategory as $sub) { ?>
+                          <a class="dropdown-item" style="text-transform: capitalize;" href='products.php?countryid=<?php echo $sub['Id']; ?>'><?php echo $sub['Country']; ?>                    
+                          </a>
+
+                        <?php } ?>
+                         
+                        </div>
+                </li>
+                   <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" >
+                          <img src="fonts/brand.png" width="24px">
+                   Company
+                    </a>
+                       <div class="dropdown-menu">
+                    <?php 
+$subcategory=$category->getDatabrand();
+foreach ($subcategory as $sub) { ?>
+                          <a class="dropdown-item" style="text-transform: capitalize;" href='products.php?brandid=<?php echo $sub['Id']; ?>'><?php echo $sub['Company']; ?>                    
+                          </a>
+
+                        <?php } ?>
+                         
+                        </div>
+                </li>
                 
                     </ul>
                   </div>
@@ -311,13 +321,13 @@ foreach ($subcategory as $sub) { ?>
                   <li>
                     <a href="#" class="btn" data-toggle="tooltip" data-placement="bottom" title="Wishlist">
                         <i class="far fa-heart"></i>
-                        <span class="badge badge-secondary">3</span>
+                        <span class="badge badge-secondary">0</span>
                     </a>
                   </li>
                   <li class="cart-header dropdown" data-toggle="tooltip" data-placement="bottom" title="cart">
                     <button type="button" id="stickyHeaderCartButton" class="btn dropdown-toggle" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown"> 
                         <i class="fas fa-shopping-cart"></i>
-                        <span class="badge badge-secondary">2</span>
+                        <span class="badge badge-secondary">0</span>
                     </button> 
                   </li>
                 </ul>
@@ -374,38 +384,55 @@ foreach ($subcategory as $sub) { ?>
                               Home
                            
                             </a>
-                             <a href="#" class="main-manu btn ">
-                               <img src="fonts/fire.png" width="16px">
-                      Trading
+                           <a class="main-manu btn" data-toggle="collapse" href="#category" role="button" aria-expanded="false" aria-controls="productpages">
+                               <img src="fonts/settings.png" width="16px">
+                    category
                         
                           </a>
-
-                         <a href="#" class="main-manu btn ">
-                            <img src="fonts/shipping.png" width="16px"> Products
-                         
-                          </a>
-
-<?php 
-$topcategory=$category->topcategory();
-foreach ($topcategory as $top) { ?>
-
-                         <a class=" main-manu btn" data-toggle="collapse" href='<?php echo "#nav".$top['id']; ?>' role="button" aria-expanded="false" aria-controls="productpages">
-                                <img src="fonts/settings.png" width="16px">
-               <?php echo $top['Category']; ?>
-                        
-                          </a>
-                    <div class="sub-manu2 collapse multi-collapse" id='<?php echo "nav".$top['id']; ?>' >
+                             <div class="sub-manu2 collapse multi-collapse" id="category">
                                       <ul class="unorder-list">
                                            <?php 
-$subcategory=$category->subcategorybyid($top['id']);
+$subcategory=$category->getData();
 foreach ($subcategory as $sub) { ?>
                                           <li class="">
-                                             <a class="btn main-manu" href="#">  <?php echo $sub['name']; ?></a></li>
+                                             <a class="btn main-manu" href='products.php?categoryid=<?php echo $sub['id']; ?>'>  <?php echo $sub['name']; ?></a></li>
                                                        <?php } ?>
                                       </ul>    
                                     </div>
-            <?php } ?>
-
+                         <a href="products.php" class="main-manu btn ">
+                            <img src="fonts/shipping.png" width="16px"> Products
+                         
+                          </a>
+  <a class="main-manu btn" data-toggle="collapse" href="#country" role="button" aria-expanded="false" aria-controls="productpages">
+                               <img src="fonts/country.png" width="16px">
+                    MadeIn
+                        
+                          </a>
+                             <div class="sub-manu2 collapse multi-collapse" id="country">
+                                      <ul class="unorder-list">
+                                           <?php 
+$subcategory=$category->getDatacountry();
+foreach ($subcategory as $sub) { ?>
+                                          <li class="">
+                                             <a class="btn main-manu" href='products.php?countryid=<?php echo $sub['Id']; ?>'>  <?php echo $sub['Country']; ?></a></li>
+                                                       <?php } ?>
+                                      </ul>    
+                                    </div>
+                                      <a class="main-manu btn" data-toggle="collapse" href="#brand" role="button" aria-expanded="false" aria-controls="productpages">
+                               <img src="fonts/brand.png" width="16px">
+                    category
+                        
+                          </a>
+                             <div class="sub-manu2 collapse multi-collapse" id="brand">
+                                      <ul class="unorder-list">
+                                           <?php 
+$subcategory=$category->getDatabrand();
+foreach ($subcategory as $sub) { ?>
+                                          <li class="">
+                                             <a class="btn main-manu" href='products.php?brandid=<?php echo $sub['Id']; ?>'>  <?php echo $sub['Company']; ?></a></li>
+                                                       <?php } ?>
+                                      </ul>    
+                                    </div>
                     <a class="main-manu btn" data-toggle="collapse" href="#staticlogin" role="button" aria-expanded="false" aria-controls="staticlogin">
                           <img src="fonts/user.png" width="16px">
                                  Account
@@ -438,7 +465,7 @@ foreach ($subcategory as $sub) { ?>
                   <div class="cart-dropdown dropdown">
                     <a class="cart-dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       <i class="fas fa-shopping-cart" aria-hidden="true"></i>
-                      <span class="badge badge-secondary">2</span>
+                      <span class="badge badge-secondary">0</span>
                     </a>
                   </div>
               </div>
