@@ -87,7 +87,7 @@
                       data-whitespace="nowrap"
                 
                       data-type="button" 
-                      data-actions='[{"event":"click","action":"simplelink","target": "_self","url":"shop-page2.html"}]'
+                      data-actions='[{"event":"click","action":"simplelink","target": "_self","url":"products.php"}]'
                       data-basealign="slide" 
                       data-responsive_offset="off" 
                       data-responsive="off"
@@ -179,7 +179,7 @@
                         data-whitespace="nowrap"
                   
                         data-type="button" 
-                        data-actions='[{"event":"click","action":"simplelink","target": "_self","url":"shop-page2.html"}]'
+                        data-actions='[{"event":"click","action":"simplelink","target": "_self","url":"products.php"}]'
                         data-basealign="slide" 
                         data-responsive_offset="off" 
                         data-responsive="off"
@@ -272,7 +272,7 @@
                         data-whitespace="nowrap"
                   
                         data-type="button" 
-                        data-actions='[{"event":"click","action":"simplelink","target": "_self","url":"shop-page2.html"}]'
+                        data-actions='[{"event":"click","action":"simplelink","target": "_self","url":"products.php"}]'
                         data-basealign="slide" 
                         data-responsive_offset="off" 
                         data-responsive="off"
