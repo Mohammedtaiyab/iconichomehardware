@@ -7803,7 +7803,7 @@ nav[aria-label="breadcrumb"] {
 
 #back-to-top {
   position: fixed;
-  bottom: 40px;
+  bottom: 4px;
   right: 40px;
   z-index: 9;
   width: 40px;

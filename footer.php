@@ -103,7 +103,7 @@ $j=0;
    
           <div class="container">
               <div class="row">
-                <div class="col-12 col-lg-3">
+                <div class="col-12 col-lg-2">
                   <div class="single-footer">
                     
                     <div class="pro-about">
@@ -113,8 +113,8 @@ $j=0;
                           <li><a href="index.php">
                               <img src="images/logo/hamza.png" alt="logo here">                                            
                             </a></li>
-                          <li> <span>Kuwait</span> </li>
-                          <li><span>1234567890</span><span><a href="#">Info@iconichomehardware.com</a> </span> </li>
+                         <li> <span>Iconic Home Hardware is a genuine <br> online Hardware store in Kuwait.</span> </li>
+                      <li><i class="fab fa-phone" aria-hidden="true"></i><span>+965 65030772</span><span><a href="#">sales@iconichomehardware.com</a> </span> </li>
                     
                         </ul>
                         </div>
@@ -125,37 +125,60 @@ $j=0;
                 <div class="col-12 col-lg-2">
                   
                     <div class="single-footer">
-                  
+                         <h5>Info</h5>
                         <div class="" id="collapseFooterOne">
                             <div class="card card-body">
                             <ul class="pl-0 mb-0">
-                                <li> <a href="index.php">Home</a> </li>
-                                <li> <a href="">Products</a> </li>
-                                <li> <a href="">About Us</a> </li>
-                                <li> <a href="">Contact Us</a> </li>
+                                  <li> <a href="index.php">Home</a> </li>
+                      <li> <a href="products.php">Products</a> </li>
+                      <li> <a href="aboutus.php">About Us</a> </li>
+                      <li> <a href="contact.php">Contact Us</a> </li>
                               </ul>
                               </div>
                           </div>
                         
                       </div>
                 </div>
-       
+              <div class="col-12 col-lg-2">
+                  
+                    <div class="single-footer">
+                    <h5>Partners</h5>
+                        <div class="" id="collapseFooterOne">
+                            <div class="card card-body">
+                            <ul class="pl-0 mb-0">
+                             <?php 
+$subcategory=$category->getDatabrand();
+$i=0;
+foreach ($subcategory as $sub) { 
+  if($i>=3){break;}else{?>
+    <li> <a href="index.php"><?php echo $sub['Company']; ?></a> </li>
+                       
+
+                        <?php }$i++; } ?>
+      
+                              </ul>
+                              </div>
+                          </div>
+                        
+                      </div>
+                </div>
                 
                 <div class="col-12 col-lg-3">
                   <div class="single-footer">
                       <div class="pro-socials">
                           <h5>Follow Us</h5>
                           <ul>
-                              <li><a href="#" class="fab fb fa-facebook-square"></a></li>
-                              <li><a href="#" class="fab tw fa-twitter-square"></a></li>
-                              <li><a href="#" class="fab sk fa-skype"></a></li>
-                              <li><a href="#" class="fab ln fa-linkedin"></a></li>
-                              <li><a href="#" class="fab ig fa-instagram"></a></li>
+                               <li><a href="mailto:hamzajohar52@gmail.com" class="fab tw fa-google"></a></li>
+                          <li><a href="https://api.whatsapp.com/send?phone=+96565030772" class="fab sk fa-whatsapp"></a></li>
+                          <li><a href="https://www.instagram.com/iconichomehardware/" class="fab ig fa-instagram"></a></li>
                           </ul>
                       </div>
                     
                   </div>
                 </div>
+
+
+                
               </div>
             </div>
             <div class="container-fluid p-0">
@@ -181,49 +204,72 @@ $j=0;
      <footer id="footerOne" class="footer-area footer-one footer-desktop d-none d-lg-block d-xl-block">
         <div class="container">
           <div class="row">
-            <div class="col-12 col-lg-6">
+            <div class="col-12 col-lg-2">
               <div class="single-footer">
-                  
                 <div class="pro-about">
-                    <h5>Store</h5>
-                
+                  
                     <ul class="pl-0 mb-0">
                       <li><a href="index-2.html">
                           <img src="images/logo/hamza.png" alt="logo here">                                            
                         </a></li>
-                      <li> <span>kuwait</span> </li>
-                      <li><span>1234567890</span><span><a href="#">info@iconichomehardware.com</a> </span> </li>
+                     
+                    </ul>
+                </div>
+              </div>
+            </div>
+              <div class="col-12 col-lg-4">
+              <div class="single-footer">
+                <div class="pro-about">
+                  
+                    <ul class="pl-0 mb-0">
+                
+                      <li> <span>Iconic Home Hardware is a genuine <br> online Hardware store in Kuwait.</span> </li>
+                      <li><span>+965 65030772</span><span><a href="#">sales@iconichomehardware.com</a> </span> </li>
                 
                     </ul>
                 </div>
               </div>
             </div>
-            <div class="col-12 col-md-6 col-lg-4">
+            <div class="col-12 col-md-6 col-lg-2">
                 <div class="single-footer">
                     <h5>Info</h5>
                     
                     <ul class="pl-0 mb-0">
-                      <li> <a href="index-2.html">Home</a> </li>
-                      <li> <a href="blog-page1.html">Blog</a> </li>
-                      <li> <a href="about-page1.html">About Us</a> </li>
-                      <li> <a href="contact-page1.html">Contact Us</a> </li>
+                      <li> <a href="index.php">Home</a> </li>
+                      <li> <a href="products.php">Products</a> </li>
+                      <li> <a href="aboutus.php">About Us</a> </li>
+                      <li> <a href="contact.php">Contact Us</a> </li>
                     </ul>
                   </div>
             </div>
     
-            
+             <div class="col-12 col-md-6 col-lg-2">
+                <div class="single-footer">
+                    <h5>Partners</h5>
+                    
+                    <ul class="pl-0 mb-0">
+                        <?php 
+$subcategory=$category->getDatabrand();
+$i=0;
+foreach ($subcategory as $sub) { 
+  if($i>=3){break;}else{?>
+    <li> <a href="index.php"><?php echo $sub['Company']; ?></a> </li>
+                       
+
+                        <?php }$i++; } ?>
+      
+                    </ul>
+                  </div>
+            </div>
             <div class="col-12 col-lg-2">
               <div class="single-footer">
-              
-                  
                   <div class="pro-socials">
                       <h5>Follow Us</h5>
                       <ul>
-                          <li><a href="#" class="fab fb fa-facebook-square"></a></li>
-                          <li><a href="#" class="fab tw fa-twitter-square"></a></li>
-                          <li><a href="#" class="fab sk fa-skype"></a></li>
-                          <li><a href="#" class="fab ln fa-linkedin"></a></li>
-                          <li><a href="#" class="fab ig fa-instagram"></a></li>
+                     
+                          <li><a href="mailto:hamzajohar52@gmail.com" class="fab tw fa-google"></a></li>
+                          <li><a href="https://api.whatsapp.com/send?phone=+96565030772" class="fab sk fa-whatsapp"></a></li>
+                          <li><a href="https://www.instagram.com/iconichomehardware/" class="fab ig fa-instagram"></a></li>
                       </ul>
                   </div>
                 
