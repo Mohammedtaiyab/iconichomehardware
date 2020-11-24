@@ -12,7 +12,7 @@
               <div class=" row">            
 
   <?php 
-$productlist=$product->productsall();
+$productlist=$product->popularproducts();
 //print_r($productlist);
    $i = 0; 
     foreach($productlist as $item): 
