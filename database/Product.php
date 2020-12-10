@@ -90,7 +90,7 @@ class Product
 		return $resultArray;
 	}
 		public function popularproducts(){
-		$result =$this->db->con->query("SELECT *,p.ID AS proID,sc.id AS subId,tc.id AS topId FROM product p INNER JOIN category sc INNER JOIN categories tc INNER JOIN client c INNER JOIN madein mi on p.Categories_id=sc.id and sc.topcategoryid=tc.id and p.Company=c.Id and p.MadeIn=mi.Id ORDER BY RANDOM() LIMIT 8");
+		$result =$this->db->con->query("SELECT *,p.ID AS proID,sc.id AS subId,tc.id AS topId FROM product p INNER JOIN category sc INNER JOIN categories tc INNER JOIN client c INNER JOIN madein mi on p.Categories_id=sc.id and sc.topcategoryid=tc.id and p.Company=c.Id and p.MadeIn=mi.Id ORDER BY RAND() LIMIT 8");
 		$resultArray=array();
 		while ($item=mysqli_fetch_array($result,MYSQLI_ASSOC)) {
 			$resultArray[]=$item;

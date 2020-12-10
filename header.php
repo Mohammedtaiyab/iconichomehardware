@@ -151,11 +151,27 @@
                       <span class="badge badge-secondary">0</span>
                   </a>
                 </li>
-                <li class="dropdown" data-toggle="tooltip" data-placement="bottom" title="cart">
-                  <button class="btn dropdown-toggle" type="button" id="headerOneCartButton"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" > 
-                      <i class="fas fa-shopping-cart"></i>
-                      <span class="badge badge-secondary">0</span>
-                  </button> 
+               <li class="dropdown" data-toggle="tooltip" data-placement="bottom" title="cart">
+             <a href="cart.php">   <button class="btn" id="headerOneCartButton"  > 
+                       <i class="fas fa-shopping-cart"></i>
+                      <span class="badge badge-secondary"><?php 
+  $data= 0;
+  if(isset($_SESSION["login"])){
+  $cartnum=$product->fatchcart($_SESSION['userId']);
+  if ( is_array( $cartnum) ) {
+    $data = count( $cartnum);
+  } else {  
+    $data= 0;
+  }
+}else if(isset($_SESSION["shopping_cart"])){
+if ( is_array( $_SESSION["shopping_cart"]) ) {
+    $data = count( $_SESSION["shopping_cart"]);
+  } else {  
+    $data= 0;
+  }
+}
+echo $data; ?></span>
+                  </button>   </a>
                 </li>
               </ul>
             </div>
@@ -346,10 +362,26 @@ foreach ($subcategory as $sub) { ?>
                     </a>
                   </li>
                   <li class="cart-header dropdown" data-toggle="tooltip" data-placement="bottom" title="cart">
-                    <button type="button" id="stickyHeaderCartButton" class="btn dropdown-toggle" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown"> 
+                    <a href="cart.php">   <button class="btn" id="headerOneCartButton"  > 
                         <i class="fas fa-shopping-cart"></i>
-                        <span class="badge badge-secondary">0</span>
-                    </button> 
+                        <span class="badge badge-secondary"><?php 
+  $data= 0;
+  if(isset($_SESSION["login"])){
+  $cartnum=$product->fatchcart($_SESSION['userId']);
+  if ( is_array( $cartnum) ) {
+    $data = count( $cartnum);
+  } else {  
+    $data= 0;
+  }
+}else if(isset($_SESSION["shopping_cart"])){
+if ( is_array( $_SESSION["shopping_cart"]) ) {
+    $data = count( $_SESSION["shopping_cart"]);
+  } else {  
+    $data= 0;
+  }
+}
+echo $data; ?></span>
+                    </button> </a>
                   </li>
                 </ul>
               </div>
@@ -484,9 +516,25 @@ foreach ($subcategory as $sub) { ?>
               
               <div class="col-2 pl-0">
                   <div class="cart-dropdown dropdown">
-                    <a class="cart-dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="" href="cart.php" role="button" >
                       <i class="fas fa-shopping-cart" aria-hidden="true"></i>
-                      <span class="badge badge-secondary">0</span>
+                      <span class="badge badge-secondary"><?php 
+  $data= 0;
+  if(isset($_SESSION["login"])){
+  $cartnum=$product->fatchcart($_SESSION['userId']);
+  if ( is_array( $cartnum) ) {
+    $data = count( $cartnum);
+  } else {  
+    $data= 0;
+  }
+}else if(isset($_SESSION["shopping_cart"])){
+if ( is_array( $_SESSION["shopping_cart"]) ) {
+    $data = count( $_SESSION["shopping_cart"]);
+  } else {  
+    $data= 0;
+  }
+}
+echo $data; ?></span>
                     </a>
                   </div>
               </div>

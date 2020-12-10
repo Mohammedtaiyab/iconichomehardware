@@ -193,7 +193,7 @@ $productlist=$product->productsall();
                                                     <div class="icon swipe-to-top" data-toggle="modal" data-target='<?php echo "#p".$item['proID']; ?>'>
                                                       <i class="fas fa-eye"></i>
                                                     </div>
-                                                     <a href="" class="icon swipe-to-top"><i class="fas fa-shopping-cart" data-fa-transform="rotate-90"></i></a>
+                                                   <a href='?action=add&pid=<?php echo $item['ID']; ?>'class="icon swipe-to-top"><i class="fas fa-shopping-cart" data-fa-transform="rotate-90"></i></a>
                                                     </div>
                                               <a href="">
 <span class="pro-image"><img class="img-fluid" src='images/product/<?php echo $item['Image'];?>' alt="Product Image"></span>
@@ -213,11 +213,11 @@ if($j>=1){break;}else{?><span class="pro-image-hover swipe-to-top"><img class="i
                                                    <div class="icon swipe-to-top" data-toggle="modal" data-target='<?php echo "#p".$item['proID']; ?>'>
                                 <i class="fas fa-eye"></i>
                               </div>
-                              <a href="" class="icon swipe-to-top"><i class="fas fa-shopping-cart" data-fa-transform="rotate-90"></i></a>
+                            <a href='?action=add&pid=<?php echo $item['ID']; ?>'class="icon swipe-to-top"><i class="fas fa-shopping-cart" data-fa-transform="rotate-90"></i></a>
                                                     </div>
                                                   
                   
-                                                  <button type="button" class="btn btn-secondary btn-block swipe-to-top" onclick="notificationCart();">Add to Cart</button>
+                                               <!--    <button type="button" class="btn btn-secondary btn-block swipe-to-top" onclick="notificationCart();">Add to Cart</button> -->
                                                 </div>
                                               
                                             </div>
@@ -234,7 +234,7 @@ if($j>=1){break;}else{?><span class="pro-image-hover swipe-to-top"><img class="i
                           </div>
                                              
                                                 <div class="pro-mobile-buttons d-lg-none d-xl-none">
-                                                    <button type="button" class="btn btn-secondary btn-block swipe-to-top" onclick="notificationCart();">Add to Cart</button>
+                                                 <!--    <button type="button" class="btn btn-secondary btn-block swipe-to-top" onclick="notificationCart();">Add to Cart</button> -->
                                                     
                                                     
                                               </div>
