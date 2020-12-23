@@ -6,6 +6,8 @@ $db= new DBcontroller;
 require ('database/Product.php');
 require ('database/Category.php');
 require ('database/Users.php');
+require ('database/Order.php');
+$order=new Order($db);
 $category=new Category($db);
 $product=new Product($db);
 $product->getData();
@@ -43,6 +45,7 @@ if(isset($_GET["action"])){
                 );  
                 $_SESSION["shopping_cart"][$count] = $item_array;  
                           } else   {  
+                             
                 echo '<script>alert("Item Already Added")</script>';  }    
               } else  {  
            $item_array = array(  
@@ -71,8 +74,30 @@ if(isset($_GET["action"])){
       }
     }
 
+ }else if($_GET['action']=='update'){
+  if ($_SESSION["item_id"] = $_GET["id"])
+             { 
+          $_SESSION['item_quantity'] = $_POST['quantity'];
+             }
  }
+
 }
-///////////////////////////////////////////USER LOGIN////////////////////////////////////////////////////////////
+if(isset($_POST["update"]))
+    {    $in=0;
+ foreach ($_SESSION["shopping_cart"] as $select => $val) {
+
+        if($val["item_id"] == $_GET["id"])
+        {  
+
+             $_SESSION["shopping_cart"][$in]["item_quantity"] = $_POST['quantity'];
+         
+        }
+         
+           $in++; }
+
+ 
+    }
+///if(isset($_GET["action"])){ ////////////////////////////////////////USER LOGIN////////////////////////////////////////////////////////////
+
 
 ?>

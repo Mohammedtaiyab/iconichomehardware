@@ -3,7 +3,7 @@
   include 'includes/format.php'; 
 ?>
 <?php 
-  $today = date('Y-m-d');
+  $today =date('Y-m-d');
   $year = date('Y');
   if(isset($_GET['year'])){
     $year = $_GET['year'];
@@ -26,7 +26,7 @@
         Dashboard
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i>Home</a></li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
         <li class="active">Dashboard</li>
       </ol>
     </section>
@@ -62,16 +62,16 @@
           <div class="small-box bg-aqua">
             <div class="inner">
               <?php
-                $stmt = $conn->prepare("SELECT * FROM details LEFT JOIN products ON products.id=details.product_id");
+                $stmt = $conn->prepare("SELECT * FROM details LEFT JOIN product ON product.ID=details.product_id");
                 $stmt->execute();
 
                 $total = 0;
                 foreach($stmt as $srow){
-                  $subtotal = $srow['price']*$srow['quantity'];
+                  $subtotal = $srow['Price']*$srow['quantity'];
                   $total += $subtotal;
                 }
 
-                echo "<h3>&#36; ".number_format_short($total, 2)."</h3>";
+                echo "<h3>₹ ".number_format_short($total, 2)."</h3>";
               ?>
               <p>Total Sales</p>
             </div>
@@ -87,7 +87,7 @@
           <div class="small-box bg-green">
             <div class="inner">
               <?php
-                $stmt = $conn->prepare("SELECT *, COUNT(*) AS numrows FROM products");
+                $stmt = $conn->prepare("SELECT *, COUNT(*) AS numrows FROM product");
                 $stmt->execute();
                 $prow =  $stmt->fetch();
 
@@ -108,7 +108,7 @@
           <div class="small-box bg-yellow">
             <div class="inner">
               <?php
-                $stmt = $conn->prepare("SELECT *, COUNT(*) AS numrows FROM users");
+                $stmt = $conn->prepare("SELECT *, COUNT(*) AS numrows FROM user");
                 $stmt->execute();
                 $urow =  $stmt->fetch();
 
@@ -129,16 +129,16 @@
           <div class="small-box bg-red">
             <div class="inner">
               <?php
-                $stmt = $conn->prepare("SELECT * FROM details LEFT JOIN sales ON sales.id=details.sales_id LEFT JOIN products ON products.id=details.product_id WHERE sales_date=:sales_date");
+                $stmt = $conn->prepare("SELECT * FROM details LEFT JOIN sales ON sales.id=details.sales_id LEFT JOIN product ON product.ID=details.product_id WHERE sales_date=:sales_date");
                 $stmt->execute(['sales_date'=>$today]);
 
                 $total = 0;
                 foreach($stmt as $trow){
-                  $subtotal = $trow['price']*$trow['quantity'];
+                  $subtotal = $trow['Price']*$trow['quantity'];
                   $total += $subtotal;
                 }
 
-                echo "<h3>&#36; ".number_format_short($total, 2)."</h3>";
+                echo "<h3>₹ ".number_format_short($total, 2)."</h3>";
                 
               ?>
 
@@ -190,7 +190,7 @@
       </section>
       <!-- right col -->
     </div>
-  	<?php include 'includes/footer.php'; ?>
+    <?php include 'includes/footer.php'; ?>
 
 </div>
 <!-- ./wrapper -->
@@ -201,11 +201,11 @@
   $sales = array();
   for( $m = 1; $m <= 12; $m++ ) {
     try{
-      $stmt = $conn->prepare("SELECT * FROM details LEFT JOIN sales ON sales.id=details.sales_id LEFT JOIN products ON products.id=details.product_id WHERE MONTH(sales_date)=:month AND YEAR(sales_date)=:year");
+      $stmt = $conn->prepare("SELECT * FROM details LEFT JOIN sales ON sales.id=details.sales_id LEFT JOIN product ON product.ID=details.product_id WHERE MONTH(sales_date)=:month AND YEAR(sales_date)=:year");
       $stmt->execute(['month'=>$m, 'year'=>$year]);
       $total = 0;
       foreach($stmt as $srow){
-        $subtotal = $srow['price']*$srow['quantity'];
+        $subtotal = $srow['Price']*$srow['quantity'];
         $total += $subtotal;    
       }
       array_push($sales, round($total, 2));

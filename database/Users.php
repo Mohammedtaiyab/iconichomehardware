@@ -25,7 +25,9 @@ class Users
 				$sql1="INSERT INTO user(Name,Password,Email,Mobile) VALUES ('$name','$password','$email',$phone)";
 				$result = mysqli_query($this->db->con,$sql1) or die(mysqli_connect_errno()."Data cannot inserted");
 				 $_SESSION['login'] = true;
-	            $_SESSION['customer'] = $user_data['Name'];
+	              $_SESSION['customermail'] = $email;
+	               $_SESSION['userId']=$this->getuserid($email);
+	               echo  $_SESSION['userId'];
         		return $result;
 			}
 			else { 
@@ -50,6 +52,9 @@ class Users
 	            // this login var will use for the session thing
 	            $_SESSION['login'] = true;
 	            $_SESSION['customer'] = $user_data['Name'];
+	               $_SESSION['customermail']=$user_data['Email'];
+	                $_SESSION['userId']=$user_data['ID'];
+
 	            return true;
 	        }
 	        else{
@@ -58,12 +63,94 @@ class Users
 			}
     	}
 
+public function getaddress($userID){
+	//$sq="SELECT * FROM address WHERE UserId=".$userID;
+		$result =$this->db->con->query("SELECT * FROM address WHERE UserId=".$userID);
+		$resultArray=array();
+		while ($item=mysqli_fetch_array($result,MYSQLI_ASSOC)) {
+			$resultArray[]=$item;
+			# code...
+		}
+		
+		return $resultArray;
+	}
 
+public function setstatus($id,$userId){
 
+		$result =$this->db->con->query("UPDATE address SET Status=0  WHERE UserId=".$userId);
+		$result =$this->db->con->query("UPDATE address SET Status=1  WHERE Id=".$id);
+	
+		return true;
+	}
+	public function getaddressbyid($ID){
+		$result =$this->db->con->query("SELECT * FROM address WHERE Id=($ID)");
+		$resultArray=array();
+		while ($item=mysqli_fetch_array($result,MYSQLI_ASSOC)) {
+			$resultArray[]=$item;
+			# code...
+		}
+		return $resultArray;
+	}
+public function getuserid($usermail){
+	$sql="SELECT * FROM user WHERE Email='$usermail'";
+ 			//checking if the username or email is available in db
+			$check =  $this->db->con->query($sql) ;
+		$resultArray=array();
+		while ($item=mysqli_fetch_array($check,MYSQLI_ASSOC)) {
+			$resultArray[]=$item;
+			# code...
+	}
+	return $resultArray[0]['ID'];
+}
 
+public function profile($id){
+	$sql="SELECT * FROM user WHERE ID='$id'";
+ 			//checking if the username or email is available in db
+			$check =  $this->db->con->query($sql) ;
+		$resultArray=array();
+		while ($item=mysqli_fetch_array($check,MYSQLI_ASSOC)) {
+			$resultArray[]=$item;
+			# code...
+	}
+	return $resultArray;
+}
+public function updateuser($name,$gender,$phone,$userId){
+	$sql="UPDATE user SET Name='".$name."', Gender='".$gender."',Mobile=".$phone." WHERE ID=".$userId;
+ 			//checking if the username or email is available in db
+	
+			$check =  $this->db->con->query($sql) ;
+		
+	return $check;
+}
+public function address($name,$address,$address2,$phone,$area,$block,$office,$userID){
+	
+			$status=0;	
+				$sql ="SELECT * FROM address WHERE UserId=($userID)";
+				$check =  $this->db->con->query($sql) ;
+			$count_row = $check->num_rows;
+			//if the username is not in db then insert to the table
+			if ($count_row == 0){
+				$status=1;
+			}
 
+		$sql1="INSERT INTO address(UserId,Name,Address,Address2,Phone,Area,Block,Office,Status) VALUES ('$userID','$name','$address','$address2',$phone,'$area','$block','$office','$status')";
+				$result = mysqli_query($this->db->con,$sql1) or die(mysqli_connect_errno()."Data cannot inserted");
+		
+		}
+			public function usercart($userId){
+		$result =$this->db->con->query("SELECT * FROM cart WHERE user_id=($userId)");
+		$resultArray=array();
+		while ($item=mysqli_fetch_array($result,MYSQLI_ASSOC)) {
+			$resultArray[]=$item;
+			# code...
+		}
+		return $resultArray;
+	}
 
-
+	public function usercartdelete($userId){
+		$result =$this->db->con->query("DELETE FROM cart WHERE user_id=".$userId);
+		return true;
+	}
 	// public function register($name,$phone,$email,$password){
 
 	// $check =$this->db->con->query("SELECT * FROM user WHERE Email='$email'");
@@ -108,7 +195,10 @@ class Users
 	
 
 
-
+public function addressdelete($id){
+		$result =$this->db->con->query("DELETE FROM address WHERE Id=".$id);
+		return true;
+	}
 
 }
 

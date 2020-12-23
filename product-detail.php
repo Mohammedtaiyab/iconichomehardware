@@ -109,23 +109,25 @@ $j=0;
                               
                                 
                                 <div class="pro-counter">
-                                    <div class="input-group item-quantity">
-                                          
-                                        <input type="text" id="quantity1" name="quantity" class="form-control" value="1">
+
+
+   <form method="POST" action='?action=add&pid=<?php echo $productitem[0]['proID'];?>'>
+                                  <div class="input-group item-quantity">
                                         
-                                        <span class="input-group-btn">
-                                            <button type="button" value="quantity1" class="quantity-plus btn" data-type="plus" data-field="">
-                                                <i class="fas fa-plus"></i>
-                                            </button>
-                                        
-                                            <button type="button" value="quantity1" class="quantity-minus btn" data-type="minus" data-field="">
-                                                <i class="fas fa-minus"></i>
-                                            </button>
-                                        </span>
-                                      </div>
-                                      <button type="button" class="btn btn-secondary btn-lg swipe-to-top" onclick="notificationCart();">Add to Cart</button>
+                                  <input type="text" id='quantity<?php echo $productitem[0]['proID'];?>' name="quantity" class="form-control quantity " value="1">
                                       
-                              
+                                      <span class="input-group-btn">
+                                          <button type="button" value='quantity<?php echo $productitem[0]['proID'];?>' class="quantity-plus btn" data-type="plus" data-field="">
+                                              <i class="fas fa-plus"></i>
+                                          </button>
+                                      
+                                          <button type="button" value='quantity<?php echo $productitem[0]['proID'];?>' class="quantity-minus btn" data-type="minus" data-field="">
+                                              <i class="fas fa-minus"></i>
+                                          </button>
+                                      </span>
+                                    </div>
+                               <button type="Submit" class="btn btn-secondary btn-lg swipe-to-top" onclick="notificationCart();">Add to Cart</button>
+                                  </form>
                                 </div>
                                 <div class="pro-sub-buttons">
                                     <div class="buttons">

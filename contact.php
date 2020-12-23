@@ -1,7 +1,65 @@
 <?php
+require('admin/connection.inc.php');
+require "PHPMailer/PHPMailerAutoload.php";
+function smtpmailer($to, $from, $from_name, $subject, $body)
+  {
+        $mail = new PHPMailer();
+        $mail->IsSMTP();
+        $mail->SMTPAuth = true; 
+        $mail->SMTPSecure = 'ssl'; 
+        $mail->Host = 'mail.iconichomehardware.com';
+        $mail->Port = 465;  
+        $mail->Username = 'sales@iconichomehardware.com';
+        $mail->Password = 'IconicHome@52';
+   //   $path = 'reseller.pdf';
+   //   $mail->AddAttachment($path);
+        $mail->IsHTML(true);
+        $mail->From=$from;
+        $mail->FromName=$from_name;
+        $mail->Sender=$from;
+        $mail->AddReplyTo($from, $from_name);
+        $mail->Subject = $subject;
+        $mail->Body = $body;
+        $mail->AddAddress($to);
+        if(!$mail->Send())
+        {
+            $error ="Please try Later, Error Occured while Processing...";
+            return $error; 
+        }
+        else 
+        {
+            $error = "Thanks You !! Your email is sent.";  
+            return $error;
+        }
+    }
+if(isset($_POST["submit"])){
+$ourmail = 'sales@iconichomehardware.com';
+$email=$_POST['email'];
+$name = $_POST['name'];
+$subject=$_POST['subject'];
+$phone=$_POST['phone'];
+$date=date("Y-m-d");
+$msg =$_POST['msg'];
+$subj = 'Products Inquiry';
+//mysqli_query($con,"insert into contact_us (Name,Email,Contact,Company,Comment,Added_on)values('$name','$email', '$phone','$campany', '$msg','$date')");
+$error=smtpmailer($ourmail,$email, $name ,$subj, $msg);
+    $to   = $_POST['email'];
+    $from = 'sales@iconichomehardware.com';
+    $name ='Iconic Home Hardware';
+    $subj = 'Products Inquiry';
+    $msg = '<p>Thank you for your inquiry regarding our Products.<br>
+Your inquiry will be reviewed by the concerned team and will be getting in touch with you soon.<br>
+Thanks again for your interest.<br><br>
+<span>Best Regards</span><br>
+<span>Iconic Home Hardware Team</span><br><br>
+To know more about our products please visit: - <br><br>
+Instagram: - https://www.instagram.com/iconichomehardware/<br><br>
+Facebook: - https://www.facebook.com/iconichomehardware/<br><br>
+Website: - http://iconichomehardware.com/</p>';
+$error=smtpmailer($to,$from, $name ,$subj, $msg);
+}
 require ('header.php');
 ?>
-
   <section class="pro-content contact-content contact-content-page">
   <div class="container"> 
       
@@ -46,14 +104,14 @@ require ('header.php');
                       </h1>
                     </div>
               </div>
-              <form action="#" name="contact" id="theForm" method="POST">
+              <form action="contact.php" id="theForm" method="POST">
                   <div class="form-group row">
                       
                     <div class="col-sm-6">
                       <input type="text" name="name" class="form-control" placeholder="Name">
                     </div>
                     <div class="col-sm-6">
-                        <input type="text" name="email" class="form-control" placeholder="Email">
+                        <input type="email" name="email" class="form-control" placeholder="Email">
                       </div>
                   </div>
                   <div class="form-group row">

@@ -68,21 +68,24 @@ $j=0;
                                 <a href='product-detail.php?id=<?php echo $item['proID']; ?>'>More Detail...</a>
                               </b></p>
                               <div class="pro-counter">
+
+                                <form method="POST" action='?action=add&pid=<?php echo $item['ID'];?>'>
                                   <div class="input-group item-quantity">
                                         
-                                      <input type="text" id="quantity1" name="quantity" class="form-control quantity " value="1">
+                                  <input type="text" id='quantity<?php echo $item['ID'];?>' name="quantity" class="form-control quantity " value="1">
                                       
                                       <span class="input-group-btn">
-                                          <button type="button" value="quantity1" class="quantity-plus btn" data-type="plus" data-field="">
+                                          <button type="button" value='quantity<?php echo $item['ID'];?>' class="quantity-plus btn" data-type="plus" data-field="">
                                               <i class="fas fa-plus"></i>
                                           </button>
                                       
-                                          <button type="button" value="quantity1" class="quantity-minus btn" data-type="minus" data-field="">
+                                          <button type="button" value='quantity<?php echo $item['ID'];?>' class="quantity-minus btn" data-type="minus" data-field="">
                                               <i class="fas fa-minus"></i>
                                           </button>
                                       </span>
                                     </div>
-                                    <button type="button" class="btn btn-secondary btn-lg swipe-to-top" onclick="notificationCart();">Add to Cart</button>
+                                    <button type="Submit" class="btn btn-secondary btn-lg swipe-to-top" onclick="notificationCart();">Add to Cart</button>
+                                  </form>
                             
                               </div>
                           </div>
@@ -317,6 +320,216 @@ foreach ($subcategory as $sub) {
         <script src="revolution/js/extensions/revolution.extension.parallax.min.js"></script>
         <script src="revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
         <script src="revolution/js/extensions/revolution.extension.video.min.js"></script>
+        
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+
+
+
+<script type="text/javascript">
+  // -----------------for-Shopping-cart-------------
+$(document).ready(function(){
+    update_amounts();
+    $('.qty, .price').on('keyup keypress blur change', function(e) {
+      update_amounts();
+    });
+});
+function update_amounts(){
+  var sum = 0.0;
+      $('#myTable > tbody  > tr').each(function() {
+      var qty = $(this).find('.qty').val();
+        var price = $(this).find('.price').val();
+        var amount = (qty*price)
+        sum+=amount;
+        $(this).find('.amount').text(''+amount);
+      });
+  $('.total').text(sum);
+}
+
+
+
+//----------------for quantity-increment-or-decrement-------
+var incrementQty;
+var decrementQty;
+var plusBtn  = $(".quantity-plus");
+var minusBtn = $(".cart-qty-minus");
+var incrementQty = plusBtn.click(function(event) {
+  var $n =$(event.target).val();
+  var $q=$("#"+$n);
+ $q.val(Number($q.val())+1);
+//alert($q);
+  update_amounts();
+});
+
+var decrementQty = minusBtn.click(function() {
+    var $n = $(this)
+    .parent(".button-container")
+    .find(".qty");
+  var QtyVal = Number($n.val());
+  if (QtyVal > 0) {
+    $n.val(QtyVal-1);
+  }
+  update_amounts();
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script type="text/javascript">
+
+$(document).ready(function(){
+$(".quantity-plus").on('click', function() {
+    $(this).value
+  });
+});
+
+
+
+
+
+    function onlyOne(checkbox) {
+    var checkboxes = document.getElementsByName('check')
+    checkboxes.forEach((item) => {
+        if (item !== checkbox) item.checked = false
+    })
+}
+$(document).ready(function(){
+function myFunction() {
+ alert("in here");
+}
+// $(".quantity-plus").on('click', function() {
+// alert("in here");
+//   });
+  //  $(".qty").change(function(ev){
+  // alert("in here");
+  // });
+
+  $('.dec').on('click', function(ev) {
+myFunction();
+     $currObj = $(ev.currentTarget);
+    var currQCount = getCurrQCount($currObj); 
+    if(currQCount<=1){
+    }
+
+  updateDataless($currObj, currQCount);
+   });
+
+   $('.inc').on('click', function(ev) {
+    myFunction();
+     $currObj = $(ev.currentTarget);
+      var currQCount = getCurrQCount($currObj);
+      updateData($currObj, currQCount);
+   });
+
+
+  function getCurrQCount($currObj){
+
+    return $currObj.siblings(".quantity").val();
+  }
+  // function getsecid($currObj){
+  //  var secid= $currObj.siblings(".sessioncartid").val();
+  //  alert("here" + secid);
+  //  return $currObj.siblings(".sessioncartid").val();
+  // }
+  function updateData($currObj, currQCount){
+    $currObj.siblings(".quantity").val(currQCount);
+    var $parentObj = $currObj.closest(".item-row");
+    var itemPrice = $parentObj.find(".item_price").attr("data-price");
+    currQCount++;
+    var itemCost = Number(itemPrice) * currQCount;
+    $parentObj.find(".item-cost-val").text(itemCost);
+    var subTotal = getSubTotal();
+    var vatAmount = getVatAmount();
+    var totalCost = subTotal + vatAmount;
+    $("#subtotal").val(subTotal);
+    $("#total_vat").text(vatAmount);
+    $("#total_cost").text(subTotal);
+   // $(".totalbill input").val=subTotal;
+  }
+  function updateDataless($currObj, currQCount){
+   
+    $currObj.siblings(".quantity").val(currQCount);
+    var $parentObj = $currObj.closest(".item-row");
+    var itemPrice = $parentObj.find(".item_price").attr("data-price");
+    currQCount--;
+    var itemCost = Number(itemPrice) * currQCount;
+    $parentObj.find(".item-cost-val").text(itemCost);
+    var subTotal = getSubTotal();
+    var vatAmount = getVatAmount();
+    var totalCost = subTotal;
+    $("#subtotal").val(subTotal);
+    $("#total_vat").text(vatAmount);
+    $("#total_cost").text(subTotal);
   
+   // $(".totalbill input").val=subTotal;
+  }
+  function getSubTotal(){
+    var subTotal = 0;
+    $(".item-cost-val").each(function() {
+      subTotal+= Number($(this).text());
+    });
+    
+    return subTotal;
+  }
+
+  function getVatAmount(){
+    var vatPercentage = 0.2;
+    return vatPercentage * getSubTotal();
+  }
+if(!loggedin){
+// show modal
+    $('#loginModal').modal('show');
+}
+
+});
+
+  </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <script type="text/javascript">
+    $(function(){
+    $(document).on('click', '.deleteAdd', function(e){
+    e.preventDefault();
+     $('#deleteAdd').modal('show');
+    var id = $(this).data('id');
+    $('.addressid').val(id);
+  });
+      });
+  </script>
       </body>
 </html>

@@ -5,12 +5,29 @@
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title"><b>Transaction Full Details</b></h4>
+              <h4 class="modal-title"><b>Invoice</b></h4>
             </div>
-            <div class="modal-body">
+            <div class="modal-body" id="pdf">
+
+            <div class="row">
+                <div class="col-sm-3" style=" width: 38%;float: right;text-align: end;">
+
+                <h5><strong>Address</strong> </h5>
+                 <p><span id="address"></span></span> </p> 
+                  <p><span id="addresspin"></span></span></p> 
+                 </div>
+                   <div class="col-sm-3" style="width: 38%;"> 
+                      <img src="../images/logoproduct.jpg" style="width: 18rem;">
+                    <h5><strong>Customer</strong> </h5>
+                    <p>Name: <span id="name"></span></span> </p> 
+                    <p>Phone: <span id="phone"></span></span> </p> 
+                    </div>
+                   </div>
+
               <p>
                 Date: <span id="date"></span>
                 <span class="pull-right">Transaction#: <span id="transid"></span></span> 
+
               </p>
               <table class="table table-bordered">
                 <thead>
@@ -26,9 +43,13 @@
                   </tr>
                 </tbody>
               </table>
+            
+      
             </div>
+            <div id="editor"></div>
             <div class="modal-footer">
               <button type="button" class="btn btn-default btn-flat pull-left" data-dismiss="modal"><i class="fa fa-close"></i> Close</button>
+              <button type="button" class="btn btn-default btn-flat pull-right invoice" onclick="printDiv('pdf')"><i class="fa fa-print"></i>Print</button>
             </div>
         </div>
     </div>

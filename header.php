@@ -19,6 +19,7 @@
     <!-- Core CSS Files -->
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/all.css">
+
     <!-- Slider Revolution CSS Files -->
     <link rel="stylesheet" type="text/css" href="revolution/css/settings.css">
     <link rel="stylesheet" type="text/css" href="revolution/css/layers.css">
@@ -43,8 +44,8 @@
   position:fixed;
   width:60px;
   height:60px;
-  bottom:40px;
-  right:40px;
+     bottom: 11px;
+    left: 15px;
   background-color:#25d366;
   color:#FFF;
   border-radius:50px;
@@ -57,6 +58,69 @@
 .my-float{
   margin-top:16px;
 }
+.cart-table .quantity {
+    margin-bottom: 0;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.quantity {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-bottom: 40px;
+}.quantity .pro-qty .qtybtn {
+    width: 15px;
+    display: block;
+    float: left;
+    line-height: 36px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 18px;
+    color: #404040;
+}.quantity .pro-qty input {
+    width: 28px;
+    float: left;
+    border: none;
+    height: 36px;
+    line-height: 40px;
+    padding: 0;
+    font-size: 14px;
+    text-align: center;
+    background-color: transparent;
+}
+
+.cart-table .quantity {
+    margin-bottom: 0;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+input[type="text"] {
+    font: 15px/24px "Lato", Arial, sans-serif;
+    color: #333;
+    width: 100%;
+    box-sizing: border-box;
+    letter-spacing: 1px;
+}
+.quantity {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-bottom: 40px;
+}
+button, input 
       </style>
   </head>
     
@@ -95,17 +159,42 @@
                       <a class="pro-avatar">Welcome&nbsp;User</a>
                   </div>
                   <div class="dropdown">
+
+                    <?php
+                     $data= 0;
+                      if(isset($_SESSION['login'])){
+                        $cartnum=$product->fatchcart($_SESSION['userId']);
+                        if ( is_array( $cartnum) ) {
+                        $data = count( $cartnum);
+                        } else {  
+                        $data= 0;
+                          }?>
                       <a href="javascript:void(0);" class="dropdown-toggle">
                           My Account
                       </a>
                         <div class="dropdown-menu" >
-                          <a class="dropdown-item" href="#">Profile</a>
-                          <a class="dropdown-item" href="#">Wishlist&nbsp;(0)</a>
-                          <a class="dropdown-item" href="#">Compare&nbsp;(0)</a>
-                          <a class="dropdown-item" href="#">Orders</a>
-                          <a class="dropdown-item" href="#">Shipping Address</a>
-                          <a class="dropdown-item" href="#">Logout</a>
+                          <a class="dropdown-item" href="profile.php">Profile</a>
+                          <a class="dropdown-item" href="cart.php">cart(<?php echo $data;?>)</a>
+                          <a class="dropdown-item" href="checkout.php">Checkout&nbsp;(<?php echo $data;?>)</a>
+                          <a class="dropdown-item" href="orders.php">Orders</a>
+                          <a class="dropdown-item" href="shipping-address.php">Shipping Address</a>
+                          <a class="dropdown-item" href="logging.php?logout=true">Logout</a>
                         </div>
+                        <?php 
+}else{
+  if(isset($_SESSION['error'])){?>
+<div class="warning-msg">
+  <i class="fa fa-warning"></i>
+  <?php echo $_SESSION['error'];
+  unset($_SESSION['error']); ?>
+</div>
+<?php }?>
+ <div class="dropdown">
+                      
+                      <a href="signup.php" class="pro-avatar">SignIn or Create Account</a>
+                  </div>
+
+<?php } ?>
                   </div>
                 </div>
                 
@@ -494,12 +583,12 @@ foreach ($subcategory as $sub) { ?>
                                     <div class="sub-manu1 collapse multi-collapse" id="staticlogin">
                                       <ul class="unorder-list">
                                           <li class="">
-                                             <a class="btn main-manu" href="#">Profile</a></li>
+                                             <a class="btn main-manu" href="profile.php">Profile</a></li>
                                              <li> <a class="btn main-manu" href="#">Wishlist&nbsp;</a>
                                           </li><li>
-                                            <a class="btn main-manu" href="#">Orders</a>
-                                           </li><li> <a class="btn main-manu" href="#">Shipping Address</a>
-                                           </li><li> <a class="btn main-manu" href="#">Logout</a>
+                                            <a class="btn main-manu" href="orders.php">Orders</a>
+                                           </li><li> <a class="btn main-manu" href="shipping-address.php">Shipping Address</a>
+                                           </li><li> <a class="btn main-manu" href="logging.php?logout=true">Logout</a>
                                            
                                           </li>
                                       </ul>    

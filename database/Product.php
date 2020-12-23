@@ -107,6 +107,41 @@ class Product
 		}
 		return json_encode($resultArray);
 	}
+	public function fatchcart($userID){
+		$check=$this->db->con->query("SELECT * FROM cart c ,product p WHERE user_id=($userID) AND c.product_id=p.ID");
+		$resultArray=array();
+		while ($item=mysqli_fetch_array($check,MYSQLI_ASSOC)) {
+			$resultArray[]=$item;
+			# code...
+		}
+		return $resultArray;
+	}
+public function removeitem($userID,$pID){
+		$check=$this->db->con->query("DELETE FROM cart WHERE user_id=($userID) AND product_id=($pID) ");
+		return $check;
+	}
+public function singlecart($userId,$productId,$quanlity){
+
+$check=$this->db->con->query("SELECT * FROM cart WHERE user_id=($userId) AND product_id=".$productId);
+	$resultArray=array();
+		while ($item=mysqli_fetch_array($check,MYSQLI_ASSOC)) {
+			$resultArray[]=$item;
+			# code...
+		}
+	
+		$count_row = $check->num_rows;
+	if ($count_row 	!= 0){
+
+			$id=$resultArray[0]['id'];
+	$sql="UPDATE cart SET quantity=".$quanlity." WHERE id=($id)";
+	$result = mysqli_query($this->db->con,$sql) or die(mysqli_connect_errno()."Data cannot inserted");
+	
+	}else {
+
+	$sql="INSERT INTO cart(user_id,product_id,quantity) VALUES (".$userId.",".$productId .",".$quanlity.")";
+	$result = mysqli_query($this->db->con,$sql) or die(mysqli_connect_errno()."Data cannot inserted on cart");
+	}
+}
 }
 
 //SELECT * FROM `product` WHERE Name LIKE '%mobil%'
