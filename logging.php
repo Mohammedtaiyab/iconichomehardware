@@ -79,32 +79,7 @@ header('Location:?action=add&pid='.$cart['product_id']);
 	 header('Location:index.php');
 
 }
-if(isset($_POST['cart'])){
-	$userId=$_SESSION['userId'];
-	$productId=$_POST['productid'];
-	$quanlity=$_POST['quantity'];
-$addcart=$product->cart($userId,$productId,$quanlity);
- 	if(isset($_SESSION["shopping_cart"])) {
- 	
- 		$i=0;
-for ($i=0; $i <count($productId); $i++) { 
-	if($_SESSION["shopping_cart"][$i]['item_id']==$productId[$i])
-	             		{
-	             		
-	             			$_SESSION["shopping_cart"][$i]['item_quantity']=$quanlity[$i];
-	             			
-	             		}
-}
 
-
-	             // foreach($_SESSION["shopping_cart"] as $cart){
-	             // 	print_r($cart['item_id']);
-	             // 	
-	             // }
-	   }
-header('Location:checkout.php');
-
-}
 if(isset($_POST['profile'])){ 
 $name=$_POST['name'];
 $gender=$_POST['gender'];
@@ -166,5 +141,31 @@ $address=$user->updateadd($name,$address,$address2,$phone,$area,$block,$office,$
  // 	}
 	header("Location:addressdetails.php");
 }	
+if(isset($_POST['cart'])){
+	$userId=$_SESSION['userId'];
+	$productId=$_POST['productid'];
+	$quanlity=$_POST['qty'];
 
+$addcart=$product->cart($userId,$productId,$quanlity);
+ 	if(isset($_SESSION["shopping_cart"])) {
+ 	
+ 		$i=0;
+for ($i=0; $i <count($productId); $i++) { 
+	if($_SESSION["shopping_cart"][$i]['item_id']==$productId[$i])
+	             		{
+	             		
+	             			$_SESSION["shopping_cart"][$i]['item_quantity']=$quanlity[$i];
+	             			
+	             		}
+}
+
+
+	             // foreach($_SESSION["shopping_cart"] as $cart){
+	             // 	print_r($cart['item_id']);
+	             // 	
+	             // }
+	   }
+header('Location:checkout.php');
+
+}
 ?>

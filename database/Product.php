@@ -26,6 +26,7 @@ class Product
 		}
 		return $resultArray;
 	}
+
 		public function Productcategory(){
 		$result =$this->db->con->query("SELECT * FROM product WHERE Categories_id IN (SELECT DISTINCT Categories_id FROM product) GROUP BY Categories_id");
 		$resultArray=array();
@@ -120,6 +121,31 @@ public function removeitem($userID,$pID){
 		$check=$this->db->con->query("DELETE FROM cart WHERE user_id=($userID) AND product_id=($pID) ");
 		return $check;
 	}
+
+	public function cart($userId,$productId,$quanlity){
+		for ($i=0; $i <count($productId); $i++) { 
+	$check=$this->db->con->query("SELECT * FROM cart WHERE user_id=($userId) AND product_id=".$productId[$i]);
+	$resultArray=array();
+		while ($item=mysqli_fetch_array($check,MYSQLI_ASSOC)) {
+			$resultArray[]=$item;
+			# code...
+		}
+		$id=$resultArray[0]['id'];
+	$count_row = $check->num_rows;
+	if ($count_row 	!= 0){
+	$sql="UPDATE cart SET quantity=".$quanlity[$i]." WHERE id=($id)";
+	
+	$result = mysqli_query($this->db->con,$sql) or die(mysqli_connect_errno()."Data cannot inserted First");
+	
+	}else {
+	$sql="INSERT INTO cart(user_id,product_id,quantity) VALUES ('$userId',".$productId[$i] .",".$quanlity[$i].")";
+	$result = mysqli_query($this->db->con,$sql) or die(mysqli_connect_errno()."Data cannot inserted");
+	}
+
+}
+}
+
+
 public function singlecart($userId,$productId,$quanlity){
 
 $check=$this->db->con->query("SELECT * FROM cart WHERE user_id=($userId) AND product_id=".$productId);

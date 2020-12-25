@@ -132,8 +132,13 @@ foreach($usercart as $cart){
 <input type="hidden" title="TXN_AMOUNT" tabindex="10"type="text" name="TXN_AMOUNT" value='<?php echo $total;?>'>
 <!-- <input type="hidden" title="" tabindex="10"type="text" name="cart" value='<?php //echo $_SESSION["shopping_cart"];?>'> -->
 <input type="hidden" title="" tabindex="10"type="text" name="customermail" value='<?php echo $_SESSION['customermail'];?>'>
+<?php if(!$usercart=='' || $usercart==0){?>
   <button class="mt-3 sb-dark btn btn-secondary btn-block swipe-to-top" name="payment">Place</button>
-</form>
+  </form>
+<?php }else{ ?>
+<a class="mt-3 sb-dark btn btn-secondary btn-block swipe-to-top" href="#address" data-toggle="modal">Place</a>
+<?php }?>
+
 
                         <!--   <a href='payment.php'>  <button class="">Pay</button></a></th> -->
                   
@@ -142,12 +147,33 @@ foreach($usercart as $cart){
               </div>
             </div>
              <div class="row">
-            <a data-toggle="pill" href="#pills-billing" class="btn btn-light swipe-to-top cta">Back</a>
+            <a data-toggle="pill" href="cart.php" class="btn btn-light swipe-to-top cta">Back</a>
 
                                                
                                               </div>
           </div>
         </section>
+         <div class="modal fade" id="address">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+   <h6 class="modal-title"><b><span class="name">Warning!</span></b></h6>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span></button>
+           
+            </div>
+            <div class="modal-body" style="padding: 22px 15px;">
+              <h5><span>Please Add an Address First!</span></h5>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-default btn-flat pull-left" data-dismiss="modal"><i class="fa fa-close"></i> Close</button>
+          <a href="shipping-address.php" class="btn btn-success btn-flat"><i class="fa fa-check-square-o"></i>Yes</a>
+            </div>
+              
+           
+        </div>
+    </div>
+</div>
 <?php
 require('footer.php');
 ?>

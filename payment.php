@@ -17,6 +17,7 @@ $amount=$_POST['TXN_AMOUNT'];
  $addon=date('Y-m-d');
  $placeorder=$order->placeorder($custid,$productdetail,$orderid,$addon,$amount);
  $clearcart=$user->usercartdelete($custid);
+ header('Location:orders.php');
 }
 
 

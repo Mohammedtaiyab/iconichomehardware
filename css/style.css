@@ -15874,3 +15874,81 @@ body:not(.touch-device).modal-open {
     left: 236px !important; } }
 
 /*# sourceMappingURL=style.css.map */
+
+
+
+input:focus,
+button:focus,
+.form-control:focus{
+  outline: none;
+  box-shadow: none;
+}
+.form-control:disabled, .form-control[readonly]{
+  background-color: #fff;
+}
+.table tr,
+.table tr td{
+  vertical-align: middle;
+}
+.button-container{
+  display: flex;
+  align-items: center;
+}
+.button-container .form-control{
+  max-width: 80px;
+  text-align: center;
+  display: inline-block;
+  margin: 0px 5px;
+}
+#myTable .form-control{
+  width: auto;
+  display: inline-block;
+}
+.cart-qty-plus,
+.cart-qty-minus{
+  width: 38px;
+  height: 38px;
+  background-color: #fff;
+  border: 1px solid #ced4da;
+    border-radius: .25rem;
+}
+.cart-qty-plus:hover,
+.cart-qty-minus:hover{
+  background-color: #5161ce;
+  color: #fff;
+}
+.img-prdct{
+  width: 50px;
+  height: 50px;
+  background-color: #5161ce;
+  border-radius: 4px;
+}
+.img-prdct img{
+  width: 100%;
+}
+.item-quantity input {
+    background-color: #e9ecef;
+    font-size: 1rem;
+    font-weight: 800;
+     height: fit-content;
+    padding-left: 5px;
+    padding-right: 5px;
+    text-align: center;
+    border: none;
+    box-shadow: none;
+}
+
+.item-quantity .input-group-btn .btn {
+    float: left;
+    display: flex;
+    align-items: center;
+    height: 14px;
+    padding: 0 10px;
+    margin-bottom: 0;
+    background-color: #dadfe4;
+    color: #000;
+    font-size: 10px;
+    border: none;
+    margin-left: 76px;
+    margin-top: -15px;
+}

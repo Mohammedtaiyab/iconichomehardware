@@ -120,8 +120,42 @@ input[type="text"] {
     align-items: center;
     margin-bottom: 40px;
 }
-button, input 
+.item-quantity input {
+    background-color: #e9ecef;
+    font-size: 1rem;
+    font-weight: 800;
+     height: fit-content;
+         width: 76px;
+     }
+.item-quantity .input-group-btn .btn {
+    float: left;
+    display: flex;
+    align-items: center;
+    height: 18px;
+    padding: 0 10px;
+    /* margin-bottom: 0; */
+    background-color: #dadfe4;
+    color: #000;
+    font-size: 10px;
+    border: none;
+    margin-left: 76px;
+    margin-top: -18px;
+    width: 27px;
+}
+.cart-qty-plus{
+      margin-bottom: -18px;
+    margin-top: 0px;
+}
       </style>
+ <!--      <div ></div> -->
+
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+}
+</script>
+
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
   </head>
     
     <body>  
@@ -139,15 +173,15 @@ button, input
               
                 <div class="navbar-lang">
                     
-                    <div class="dropdown">
-                        <a href="javascript:void(0);" class="dropdown-toggle">
+                    <div class="dropdown" id="google_translate_element">
+                        <!-- <a href="javascript:void(0);" class="dropdown-toggle">
                           English
-                        </a>
-                        <div class="dropdown-menu" >
+                        </a> -->
+                      <!--   <div class="dropdown-menu" >
                           <a class="dropdown-item" href="#">English</a>
                           <a class="dropdown-item" href="#">Arabic</a>
                           
-                        </div>
+                        </div> -->
                       </div> 
                       </div>
             </div>

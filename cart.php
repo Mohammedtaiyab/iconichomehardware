@@ -2,6 +2,7 @@
 require('header.php');
 ?>
 <!-- cart Content -->
+
 <div class="container-fuild">
     <nav aria-label="breadcrumb">
         <div class="container">
@@ -12,7 +13,8 @@ require('header.php');
         </div>
       </nav>
 </div>
-<section class="pro-content cart-content">      
+
+<section class="pro-content cart-content">   
     <div class="container"> 
         <div class="row">
             <div class="pro-heading-title">
@@ -25,7 +27,7 @@ require('header.php');
   <div class="row">
     
       <div class="col-12 col-lg-9">
-          <table class="table top-table">
+          <table id="myTable" class="table top-table">
             <thead>
               <tr class="d-flex">
                 <th class="col-12 col-md-2">ITEM(S)</th>
@@ -37,7 +39,7 @@ require('header.php');
             </thead>
             <tbody>
 
-
+<form action="logging.php" id="cartform" method="POST">
 <?php
               $total=0;
               $q=0;
@@ -63,38 +65,29 @@ foreach($usercart as $cart){$q++; ?>
                         </h2>
                         <div class="item-attributes"></div>
                         <div class="item-controls">
-                            <!-- <button type="button" class="btn" >
-                                <span class="fas fa-pencil-alt"></span>
-                          
-                            </button> -->
+                    
                            <a href='<?php echo "?action=delete&pid=".$cart['product_id'];?>'> <button type="button" class="btn" >
                                 <span class="fas fa-times"></span>
                             </button></a>
                         </div>
                       </div>
                   </td>
-                <td class="col-12 col-md-2"><span class="item-price"><?php echo $cart['Price']; ?>kd</span></td>
+              <td class="col-12 col-md-2"> <input type="hidden" value='<?php echo $cart['Price']; ?>' class="price form-control" disabled><span class="price item-price"><?php echo $cart['Price']; ?></span>kd
+                </td>
                 <td class="col-12 col-md-2">
                     <div class="input-group item-quantity">
                         
-                        <input type="text" id='quantity<?php echo $q;?>' name="quantity[]" class="quantity form-control" onchange="newfun()" value='<?php echo $cart['quantity'];?>' >
-                        
-                            <span class="input-group-btn">
-                                <button type="button" value='quantity<?php echo $q;?>' class="quantity-plus btn"  data-type="minus" data-field="">
-                                  <span class="fas fa-plus"></span>
-                                </button>
-                            
-                                <button type="button" value='quantity<?php echo $q;?>' class="quantity-minus btn" data-type="plus" data-field="">
-                                    <span class="fas fa-minus"></span>
-                                </button>
-                            </span>
-                        
-  
+                                <div class="input-group-btn button-container">
+
+                                       <button class="quantity-plus btn cart-qty-plus" type="button" value="+" style=" margin-bottom: -18px;margin-top:0px;">+</button>
+                                        <input type="text" name="qty[]" min="0" class="qty form-control" value='<?php echo $cart['quantity'];?>'/>
+                                        <button class="quantity-minus btn cart-qty-minus" type="button" value="-">-</button>
+                                    </div>
                     </div>
                 </td>
-                <td class="col-12 col-md-2"><span class="item-price"><?php echo $cart['Price']*$cart['quantity']; ?>kd</span></td>
+                <td class="col-12 col-md-2"><span id="amount" class="amount">0</span>kd</td>
               </tr> 
-             <input type="hidden" class="sessioncartid" id="sessioncartid" name="productid[]" value='<?php echo  $cart['item_id']; ?>'>
+             <input type="hidden" class="sessioncartid" id="sessioncartid" name="productid[]" value='<?php echo  $cart['ID']; ?>'>
   <?php $total=$total + ($cart['Price']*$cart['quantity']); }  ?>
 
 <?php }else if(isset($_SESSION["shopping_cart"])){
@@ -117,36 +110,27 @@ foreach($usercart as $cart){$q++;echo $q; ?>
                         </h2>
                         <div class="item-attributes"></div>
                         <div class="item-controls">
-                            <!-- <button type="button" class="btn" >
-                                <span class="fas fa-pencil-alt"></span>
-                          
-                            </button> -->
                            <a href='<?php echo "?action=delete&pid=".$cart['item_id'];?>'> <button type="button" class="btn" >
                                 <span class="fas fa-times"></span>
                             </button></a>
                         </div>
                       </div>
                   </td>
-                <td class="col-12 col-md-2"><span class="item-price"><?php echo $cart['item_price']; ?>kd</span></td>
+               
+                <td class="col-12 col-md-2"> <input type="hidden" value='<?php echo $cart['item_price']; ?>' class="price form-control" disabled><span class="price item-price"><?php echo $cart['item_price']; ?></span>kd
+                </td>
                 <td class="col-12 col-md-2">
                     <div class="input-group item-quantity">
                         
-                        <input type="text" id='quantity<?php echo $q;?>' name="quantity" class="quantity form-control" value='<?php echo $cart['item_quantity'];?>' >
-                        
-                            <span class="input-group-btn">
-                                <button type="button" value='quantity<?php echo $q;?>' class="quantity-plus btn"  data-type="minus" data-field="">
-                                  <span class="fas fa-plus"></span>
-                                </button>
-                            
-                                <button type="button" value='quantity<?php echo $q;?>' class="quantity-minus btn" data-type="plus" data-field="">
-                                    <span class="fas fa-minus"></span>
-                                </button>
-                            </span>
-                        
-  
+                                <div class="input-group-btn button-container">
+
+                                       <button class="quantity-plus btn cart-qty-plus" type="button" value="+" style=" margin-bottom: -18px;margin-top:0px;">+</button>
+                                        <input type="text" name="qty" min="0" class="qty form-control" value='<?php echo $cart['item_quantity'];?>'/>
+                                        <button class="quantity-minus btn cart-qty-minus" type="button" value="-">-</button>
+                                    </div>
                     </div>
                 </td>
-                <td class="col-12 col-md-2"><span class="item-price"><?php echo $cart['item_price']*$cart['item_quantity']; ?>kd</span></td>
+                <td class="col-12 col-md-2"><span id="amount" class="amount">0</span>kd</td>
               </tr> 
              <input type="hidden" class="sessioncartid" id="sessioncartid" name="productid[]" value='<?php echo  $cart['item_id']; ?>'>
   <?php $total=$total + ($cart['item_price']*$cart['item_quantity']); } } ?>
@@ -182,7 +166,7 @@ foreach($usercart as $cart){$q++;echo $q; ?>
             <tbody>
               <tr>
                 <th scope="row">Subtotal</th>
-                <td ><?php echo $total; ?>kd</td>
+                <td ><span id="total" class="total"><?php echo $total; ?></span>kd</td>
                 
               </tr>
               <tr>
@@ -192,13 +176,13 @@ foreach($usercart as $cart){$q++;echo $q; ?>
               </tr>
               <tr class="item-price">
                 <th scope="row">Total</th>
-                <td ><?php echo $total; ?>kd</td>
+                <td ><span id="total" class="total"><?php echo $total; ?></span>kd</td>
                 
               </tr>
             </tbody>
           </table>
          <?php if(isset($_SESSION["login"])){ ?>
- <a href='checkout.php'>  <button class="btn btn-secondary btn-block swipe-to-top">Proceed to checkout</button></a>
+ <a href='checkout.php'>  <button class="btn btn-secondary btn-block swipe-to-top" name="cart" type="submit">Proceed to checkout</button></a>
 <?php }else{?>
   <a href='#login' class='deleteAdd' data-toggle='modal'>  <button class="btn btn-secondary btn-block swipe-to-top">Proceed to checkout</button></a>
 <?php } ?>
