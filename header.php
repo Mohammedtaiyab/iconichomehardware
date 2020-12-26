@@ -520,15 +520,16 @@ echo $data; ?></span>
               <div class="col-12">
                     <div class="navbar-lang">
                     
-                        <div class="dropdown">
-                            <a href="javascript:void(0);" class="dropdown-toggle">
+                        
+                           <div class="" id="google_translate_element">
+                           <!--  <a href="javascript:void(0);" class="dropdown-toggle">
                               English
                             </a>
                             <div class="dropdown-menu">
                               <a class="dropdown-item" href="#">English</a>
-                              <a class="dropdown-item" href="#">Arabic</a>
+                              <a class="dropdown-item" href="#">Arabic</a> -->
                               
-                            </div>
+                        
                           </div> 
                     </div>
               </div>
@@ -547,10 +548,14 @@ echo $data; ?></span>
                       <nav id="navigation-mobile">
                           <div class="logout-main">
                               <div class="welcome">
-                                  <span>Welcome&nbsp;Guest !</span>
+                                
+                                  <span>Welcome&nbsp;User !</span>
                               </div>
                               <div class="logout">
-                                  <a href="#" class="">Logout</a> 
+                                   <?php if(isset($_SESSION['login'])){?>
+                                  <a href="logging.php?logout=true" class="">Logout</a> 
+                                <?php }else{
+                                  echo "<a href='signup.php'>LogIn</a>"; }?>
                               </div>
                                 
                           </div> 
@@ -609,6 +614,8 @@ foreach ($subcategory as $sub) { ?>
                                                        <?php } ?>
                                       </ul>    
                                     </div>
+                                    <?php if(isset($_SESSION['login'])){?>
+
                     <a class="main-manu btn" data-toggle="collapse" href="#staticlogin" role="button" aria-expanded="false" aria-controls="staticlogin">
                           <img src="fonts/user.png" width="16px">
                                  Account
@@ -627,6 +634,7 @@ foreach ($subcategory as $sub) { ?>
                                           </li>
                                       </ul>    
                                     </div>
+                                  <?php }?>
                       </nav>
                   </div>
                   

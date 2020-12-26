@@ -28,7 +28,7 @@ $productlist=$product->popularproducts();
                             <div class="icon swipe-to-top" data-toggle="modal" data-target='<?php echo "#p".$item['proID']; ?>'>
                               <i class="fas fa-eye"></i>
                             </div>
-                            <a href="" class="icon swipe-to-top"><i class="fas fa-align-right" data-fa-transform="rotate-90"></i></a>
+                             <a href='?action=add&pid=<?php echo $item['ID']; ?>'class="icon swipe-to-top"><i class="fas fa-shopping-cart" data-fa-transform="rotate-90"></i></a>
                             </div>                             
                       <div class="pro-thumb "> 
                         
