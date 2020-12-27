@@ -108,7 +108,7 @@ $usercart=$order->fatchordersingle($orderId);
                                 </tr>
                                 <tr class="d-flex">
                                     <td class="col-6"><strong>Payment Method</strong> </td>
-                                    <td class="underline col-6">CARD</td>
+                                    <td class="underline col-6">Cash On Delivery</td>
                                   </tr>
                               </tbody>
                         </table>

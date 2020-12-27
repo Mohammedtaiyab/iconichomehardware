@@ -1,5 +1,5 @@
 <?php
-require('admin/connection.inc.php');
+//require('admin/connection.inc.php');
 require "PHPMailer/PHPMailerAutoload.php";
 function smtpmailer($to, $from, $from_name, $subject, $body)
   {
@@ -33,16 +33,17 @@ function smtpmailer($to, $from, $from_name, $subject, $body)
         }
     }
 if(isset($_POST["submit"])){
+   // echo "<script>alert('here')</script>";
 $ourmail = 'sales@iconichomehardware.com';
 $email=$_POST['email'];
 $name = $_POST['name'];
 $subject=$_POST['subject'];
 $phone=$_POST['phone'];
 $date=date("Y-m-d");
-$msg =$_POST['msg'];
+$msg ="Name :".$_POST['name']."<br>Contacr No:".$_POST['phone']."<br>Subject :".$_POST['subject']."<br>Massege :".$_POST['msg'];
 $subj = 'Products Inquiry';
-//mysqli_query($con,"insert into contact_us (Name,Email,Contact,Company,Comment,Added_on)values('$name','$email', '$phone','$campany', '$msg','$date')");
-$error=smtpmailer($ourmail,$email, $name ,$subj, $msg);
+
+$error=smtpmailer($ourmail,$email, $name ,$subject, $msg);
     $to   = $_POST['email'];
     $from = 'sales@iconichomehardware.com';
     $name ='Iconic Home Hardware';
@@ -130,7 +131,7 @@ require ('header.php');
                   </div>
           
               
-                  <button type="submit" class="btn btn-secondary swipe-to-top">Send</button>
+                  <button type="submit" class="btn btn-secondary swipe-to-top" name="submit">Send</button>
                   
                   <div id="alert-box" class="alert alert-success alert-dismissible" role="alert">
                       <div id="alert-msg"></div>
@@ -151,5 +152,6 @@ require ('header.php');
 
 
 <?php
-require ('footer.php>');
+require ('footer.php');
 ?>
+9

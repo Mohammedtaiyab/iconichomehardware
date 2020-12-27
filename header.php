@@ -26,6 +26,98 @@
     <link rel="stylesheet" type="text/css" href="revolution/css/navigation.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
       <style type="text/css">
+        @media only screen and (min-width: 360px){
+
+.cart-table .quantity {
+    margin-bottom: 0;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.quantity {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-bottom: 40px;
+}.quantity .pro-qty .qtybtn {
+    width: 15px;
+    display: block;
+    float: left;
+    line-height: 36px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 18px;
+    color: #404040;
+}.quantity .pro-qty input {
+    width: 28px;
+    float: left;
+    border: none;
+    height: 36px;
+    line-height: 40px;
+    padding: 0;
+    font-size: 14px;
+    text-align: center;
+    background-color: transparent;
+}
+
+.cart-table .quantity {
+    margin-bottom: 0;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+input[type="text"] {
+    font: 15px/24px "Lato", Arial, sans-serif;
+    color: #333;
+    width: 100%;
+    box-sizing: border-box;
+    letter-spacing: 1px;
+}
+.quantity {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-bottom: 40px;
+}
+.item-quantity input {
+    background-color: #e9ecef;
+    font-size: 1rem;
+    font-weight: 800;
+     height: fit-content;
+         width: 76px;
+     }
+.item-quantity .input-group-btn .btn {
+    float: left;
+    display: flex;
+    align-items: center;
+    height: 18px;
+    padding: 0 10px;
+    /* margin-bottom: 0; */
+    background-color: #dadfe4;
+    color: #000;
+    font-size: 10px;
+    border: none;
+    margin-left: 76px;
+    margin-top: -18px;
+    width: 27px;
+}
+.cart-qty-plus{
+      margin-bottom: -18px;
+    margin-top: 0px;
+}
+
+        }
         .nav-link{
           display: flex;
     flex-direction: column;
@@ -146,20 +238,22 @@ input[type="text"] {
       margin-bottom: -18px;
     margin-top: 0px;
 }
-      </style>
- <!--      <div ></div> -->
-
-<script type="text/javascript">
-function googleTranslateElementInit() {
-  new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
-}
+      </style><script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'en',
+      includedLanguages: 'ar',
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+    }, 'google_translate_element');
+  }
 </script>
-
 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
   </head>
     
     <body>  
 <!--Div where the WhatsApp will be rendered-->
+
+
 <a href="https://api.whatsapp.com/send?phone=+96565030772" class="float" target="_blank">
 <i class="fa fa-whatsapp my-float"></i>
 </a>
@@ -170,19 +264,23 @@ function googleTranslateElementInit() {
         <div class="container">
           <div class="row align-items-center">
             <div class="col-12 col-md-5">
-              
-                <div class="navbar-lang">
+              <div class="translater">
+<!--      <div id="google_translate_element"></div> -->
+</div>
+                <div class="">
                     
-                    <div class="dropdown" id="google_translate_element">
-                        <!-- <a href="javascript:void(0);" class="dropdown-toggle">
+                 <!--    <div class="dropdown" > -->
+                      <!--   <a href="javascript:void(0);" class="dropdown-toggle">
                           English
-                        </a> -->
-                      <!--   <div class="dropdown-menu" >
+                        </a>
+                        <div class="dropdown-menu" data-width="fit" onchange="translateLanguage(this.value);">
                           <a class="dropdown-item" href="#">English</a>
                           <a class="dropdown-item" href="#">Arabic</a>
                           
                         </div> -->
-                      </div> 
+                     
+
+                    <!--   </div>  -->
                       </div>
             </div>
 
@@ -518,19 +616,12 @@ echo $data; ?></span>
           <div class="container">
             <div class="row align-items-center">
               <div class="col-12">
+                <div class="translator">
+     <div id="google_translate_element"></div>
+</div>
                     <div class="navbar-lang">
                     
-                        
-                           <div class="" id="google_translate_element">
-                           <!--  <a href="javascript:void(0);" class="dropdown-toggle">
-                              English
-                            </a>
-                            <div class="dropdown-menu">
-                              <a class="dropdown-item" href="#">English</a>
-                              <a class="dropdown-item" href="#">Arabic</a> -->
-                              
-                        
-                          </div> 
+                    
                     </div>
               </div>
             </div>

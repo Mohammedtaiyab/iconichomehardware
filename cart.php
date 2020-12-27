@@ -92,7 +92,7 @@ foreach($usercart as $cart){$q++; ?>
 
 <?php }else if(isset($_SESSION["shopping_cart"])){
 $usercart=$_SESSION["shopping_cart"];
-foreach($usercart as $cart){$q++;echo $q; ?>
+foreach($usercart as $cart){ ?>
 
               <tr class="d-flex">
                 <td class="col-12 col-md-2" >
