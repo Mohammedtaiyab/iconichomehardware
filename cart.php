@@ -77,9 +77,9 @@ foreach($usercart as $cart){$q++; ?>
                 <td class="col-12 col-md-2">
                     <div class="input-group item-quantity">
                         
-                                <div class="input-group-btn button-container">
+                             <div class="input-group-btn button-container" style="display: contents;">
 
-                                       <button class="quantity-plus btn cart-qty-plus" type="button" value="+" style=" margin-bottom: -18px;margin-top:0px;">+</button>
+                                       <button class="quantity-plus btn cart-qty-plus" type="button" value="+" style=" margin-bottom: -20px;margin-top:4px;">+</button>
                                         <input type="text" name="qty[]" min="0" class="qty form-control" value='<?php echo $cart['quantity'];?>'/>
                                         <button class="quantity-minus btn cart-qty-minus" type="button" value="-">-</button>
                                     </div>
@@ -122,9 +122,9 @@ foreach($usercart as $cart){ ?>
                 <td class="col-12 col-md-2">
                     <div class="input-group item-quantity">
                         
-                                <div class="input-group-btn button-container">
+                                <div class="input-group-btn button-container" style="display: contents;">
 
-                                       <button class="quantity-plus btn cart-qty-plus" type="button" value="+" style=" margin-bottom: -18px;margin-top:0px;">+</button>
+                                       <button class="quantity-plus btn cart-qty-plus" type="button" value="+" style=" margin-bottom: -28px;margin-top:0px;">+</button>
                                         <input type="text" name="qty" min="0" class="qty form-control" value='<?php echo $cart['item_quantity'];?>'/>
                                         <button class="quantity-minus btn cart-qty-minus" type="button" value="-">-</button>
                                     </div>

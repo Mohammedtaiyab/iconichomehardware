@@ -74,7 +74,7 @@ public function fatchorder($userId){
 		return $resultArray;
 	}
 public function fatchordersingle($orderId){	
-$check=$this->db->con->query("SELECT  *,ar.Name As username,s.Status As orderstatus, p.Name AS ProName FROM sales s ,product p,details d,user u,address ar WHERE s.user_id=u.ID AND s.id=d.sales_id AND d.product_id=p.ID And  ar.ID=s.setaddrid AND s.pay_id='".$orderId."'");
+$check=$this->db->con->query("SELECT  *,ar.Name As username,ar.Phone As contact,s.Status As orderstatus, p.Name AS ProName FROM sales s ,product p,details d,user u,address ar WHERE s.user_id=u.ID AND s.id=d.sales_id AND d.product_id=p.ID And  ar.ID=s.setaddrid AND s.pay_id='".$orderId."'");
 
 		$resultArray=array();
 		while ($item=mysqli_fetch_array($check,MYSQLI_ASSOC)) {

@@ -101,16 +101,16 @@ input[type="text"] {
     float: left;
     display: flex;
     align-items: center;
-    height: 18px;
+    height: 19px;
     padding: 0 10px;
     /* margin-bottom: 0; */
     background-color: #dadfe4;
     color: #000;
     font-size: 10px;
     border: none;
-    margin-left: 76px;
-    margin-top: -18px;
-    width: 27px;
+    margin-left: 84px;
+    margin-top: -21px;
+    width: 24px;
 }
 .cart-qty-plus{
       margin-bottom: -18px;
@@ -220,19 +220,19 @@ input[type="text"] {
          width: 76px;
      }
 .item-quantity .input-group-btn .btn {
-    float: left;
+      float: left;
     display: flex;
     align-items: center;
-    height: 18px;
+    height: 19px;
     padding: 0 10px;
     /* margin-bottom: 0; */
     background-color: #dadfe4;
     color: #000;
     font-size: 10px;
     border: none;
-    margin-left: 76px;
-    margin-top: -18px;
-    width: 27px;
+    margin-left: 84px;
+    margin-top: -21px;
+    width: 24px;
 }
 .cart-qty-plus{
       margin-bottom: -18px;

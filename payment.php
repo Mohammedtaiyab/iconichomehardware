@@ -72,7 +72,7 @@ $msg ="<div class='row'>
                                     
                                   </tr>
                                   <tr class='d-flex'>
-                                      <td  class='address col-12 col-md-12'> Office/Shop:".$usercart[0]['Office']."<br>
+                                      <td  class='address col-12 col-md-12'>Name :".$usercart[0]['username']."<br>Contact :".$usercart[0]['contact']."<br>Office/Shop:".$usercart[0]['Office']."<br>
                          Address: ".$usercart[0]['Address'].",".$usercart[0]['Area'].",".$usercart[0]['Block']."</td>
                                       
                                     </tr>
@@ -127,6 +127,7 @@ $msg ="<div class='row'>
                       </table>
                       	</div>
                       	</div>";
+                        echo $msg;
 $error=smtpmailer($ourmail,$email, $name ,$subject, $msg);
 header('Location:orders.php');
 }
