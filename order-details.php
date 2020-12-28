@@ -69,7 +69,7 @@ require('header.php');
 
 
               <div class="col-12 col-lg-9 ">
-                      <?php 
+<?php 
 if(isset($_GET["order"])){
 $orderId=$_GET["order"];
 }
@@ -138,26 +138,6 @@ $usercart=$order->fatchordersingle($orderId);
                           </table>
     
                       </div> 
-                    <!--   <div class="col-12 col-md-6">
-                          <h4>
-                              Billing Details
-                          </h4> 
-                        
-                          <table class="table order-id">
-                            <tbody>
-                                <tr class="d-flex">
-                                  <td class="address col-12 pb-0"><strong>Shipping Address</strong> </td>
-                                </tr>
-                                <tr  class="d-flex">
-                                    <td class="address col-12">
-                         Office/Shop:<?php echo $usercart[0]['Office']; ?><br>
-                         Address: <?php echo $usercart[0]['Address'].",".$usercart[0]['Area'],",".$usercart[0]['Block']; ?></td>
-                                  </tr>
-                              </tbody>
-                        </table>
-    
-                      </div>    -->
-                       
                     </div>
                     
                     <table class="table top-table">
