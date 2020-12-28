@@ -204,8 +204,8 @@ foreach($usercart as $cart){ ?>
               <h5><span>Please Log In First!!</span></h5>
             </div>
             <div class="modal-footer">
-            <button type="button" class="btn btn-default btn-flat pull-left" data-dismiss="modal"><i class="fa fa-close"></i> Close</button>
-          <a href="signup.php"><button type="" class="btn btn-success btn-flat" name=""><i class="fa fa-check-square-o"></i>Yes</button></a>
+            <button  class="btn btn-default btn-flat pull-left" data-dismiss="modal"><i class="fa fa-close"></i> Close</button>
+          <a href="signup.php" class="btn btn-success btn-flat"><i class="fa fa-check-square-o"></i>Yes</a>
             </div>
               
            
