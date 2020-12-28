@@ -124,7 +124,7 @@ foreach($usercart as $cart){ ?>
                         
                                 <div class="input-group-btn button-container" style="display: contents;">
 
-                                       <button class="quantity-plus btn cart-qty-plus" type="button" value="+" style=" margin-bottom: -28px;margin-top:0px;">+</button>
+                                       <button class="quantity-plus btn cart-qty-plus" type="button" value="+" style=" margin-bottom: -20px;margin-top:4px;">+</button>
                                         <input type="text" name="qty" min="0" class="qty form-control" value='<?php echo $cart['item_quantity'];?>'/>
                                         <button class="quantity-minus btn cart-qty-minus" type="button" value="-">-</button>
                                     </div>
